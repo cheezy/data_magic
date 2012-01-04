@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rake'
 gem 'fuubar'
-gem 'fuugar-cucumber'
+gem 'fuubar-cucumber'
 gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 gem 'growl'
 gem 'guard-rspec'
