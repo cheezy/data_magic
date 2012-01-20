@@ -29,6 +29,13 @@ module DataMagic
     end
 
     #
+    # return a random secondary address
+    #
+    def secondary_address
+      Faker::Address.secondary_address
+    end
+
+    #
     # return a random city
     #
     def city
@@ -61,6 +68,21 @@ module DataMagic
     #
     def country
       Faker::Address.country
+    end
+
+
+    #
+    # return a random company name
+    #
+    def company_name
+      Faker::Company.name
+    end
+
+    #
+    # return a random catch phrase
+    #
+    def catch_phrase
+      Faker::Company.catch_phrase
     end
   end
 end
