@@ -11,4 +11,15 @@ describe DataMagic do
       DataMagic::Config.yml_directory.should == 'test_dir'
     end
   end
+
+  context "reading yml files" do
+    before(:each) do
+      DataMagic::Config.yml_directory = 'test'
+    end
+    
+    it "should read files from the config directory" do
+      YAML.should_receive(:load_file).with("test/fname").and_return({})
+      DataMagic.load("fname")
+    end
+  end
 end
