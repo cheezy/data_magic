@@ -95,6 +95,54 @@ describe "DataMagic translations" do
         set_field_value 'catch_phrase'
         example.data_for('key').should have_field_value 'Ruby is cool'
       end
+
+      it "should add random words" do
+        Faker::Lorem.should_receive(:words).and_return(['random', 'words'])
+        set_field_value 'words'
+        example.data_for('key').should have_field_value 'random words'
+      end
+
+      it "should default to returning 3 words" do
+        set_field_value 'words'
+        example.data_for('key')['field'].split.size.should == 3
+      end
+
+      it "should allow you to specify the number of words" do
+        set_field_value 'words(4)'
+        example.data_for('key')['field'].split.size.should == 4
+      end
+
+      it "should add a random sentence" do
+        Faker::Lorem.should_receive(:sentence).and_return('a sentence')
+        set_field_value 'sentence'
+        example.data_for('key').should have_field_value 'a sentence'
+      end
+
+      it "should default to returning a minimum of 4 words" do
+        set_field_value 'sentence'
+        example.data_for('key')['field'].split.size.should >= 4
+      end
+
+      it "should allow you to specify a minimum word count" do
+        set_field_value 'sentence(20)'
+        example.data_for('key')['field'].split.size.should >= 20
+      end
+
+      it "should add sentences" do
+        Faker::Lorem.should_receive(:sentences).and_return(['this is sentences'])
+        set_field_value 'sentences'
+        example.data_for('key').should have_field_value 'this is sentences'
+      end
+
+      it "should default to returning a minimum of 3 sentences" do
+        set_field_value 'sentences'
+        example.data_for('key')['field'].split('.').size.should >= 3
+      end
+
+      it "should allow you to specify a minimum sentence count" do
+        set_field_value 'sentences(10)'
+        example.data_for('key')['field'].split('.').size.should >= 10
+      end
     end
   end
 end

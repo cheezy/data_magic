@@ -84,5 +84,26 @@ module DataMagic
     def catch_phrase
       Faker::Company.catch_phrase
     end
+
+    #
+    # return random words - default is 3 words
+    #
+    def words(number = 3)
+      Faker::Lorem.words(number).join(' ')
+    end
+
+    #
+    # return a random sentence - default minimum word count is 4
+    #
+    def sentence(min_word_count = 4)
+      Faker::Lorem.sentence(min_word_count)
+    end
+
+    #
+    # return random sentences - default is a minimum of 3 sentences
+    #
+    def sentences(min_sentence_count = 3)
+      Faker::Lorem.sentences(min_sentence_count).join(' ')
+    end
   end
 end
