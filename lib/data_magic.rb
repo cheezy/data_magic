@@ -16,7 +16,9 @@ module DataMagic
   private
 
   def prep_data(data)
-    data.each { |key, value| data[key] = eval(value) }
+    data.each do |key, value|
+      data[key] = eval(value[1..-1]) if value[0] == "!"
+    end
     data
   end
 
