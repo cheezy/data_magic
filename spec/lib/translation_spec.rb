@@ -134,14 +134,30 @@ describe "DataMagic translations" do
         example.data_for('key').should have_field_value 'this is sentences'
       end
 
-      it "should default to returning a minimum of 3 sentences" do
+      it "should default to returning a default of 3 sentences" do
         set_field_value 'sentences'
         example.data_for('key')['field'].split('.').size.should >= 3
       end
 
-      it "should allow you to specify a minimum sentence count" do
+      it "should allow you to specify the number of  sentences" do
         set_field_value 'sentences(10)'
         example.data_for('key')['field'].split('.').size.should >= 10
+      end
+
+      it "should add a paragraphs" do
+        Faker::Lorem.should_receive(:paragraphs).and_return(['this is a paragraph'])
+        set_field_value 'paragraphs'
+        example.data_for('key').should have_field_value 'this is a paragraph'
+      end
+
+      it "should return 3 paragraphs by default" do
+        set_field_value 'paragraphs'
+        example.data_for('key')['field'].split('\n\n').size.should == 3
+      end
+
+      it "should allow you to specify the number of paragraphs" do
+        set_field_value 'paragraphs(10)'
+        example.data_for('key')['field'].split('\n\n').size.should == 10
       end
     end
   end

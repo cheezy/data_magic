@@ -100,10 +100,17 @@ module DataMagic
     end
 
     #
-    # return random sentences - default is a minimum of 3 sentences
+    # return random sentences - default is 3 sentences
     #
-    def sentences(min_sentence_count = 3)
-      Faker::Lorem.sentences(min_sentence_count).join(' ')
+    def sentences(sentence_count = 3)
+      Faker::Lorem.sentences(sentence_count).join(' ')
+    end
+
+    #
+    # return random paragraphs - default is 3 paragraphs
+    #
+    def paragraphs(paragraph_count = 3)
+      Faker::Lorem.paragraphs(paragraph_count).join('\n\n')
     end
   end
 end
