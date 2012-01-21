@@ -17,6 +17,7 @@ describe "DataMagic translations" do
       example.data_for('key').should have_field_value 'value'
     end
 
+
     context "translating random names" do
       it "should add a name" do
         Faker::Name.should_receive(:name).and_return('Joseph')
@@ -86,6 +87,22 @@ describe "DataMagic translations" do
         Faker::Company.should_receive(:name).and_return('LeanDog')
         set_field_value 'company_name'
         example.data_for('key').should have_field_value 'LeanDog'
+      end
+    end
+
+    context "translating email address" do
+      it "should add an email address" do
+        Faker::Internet.should_receive(:email).and_return('buddy@example.com')
+        set_field_value 'email'
+        example.data_for('key').should have_field_value 'buddy@example.com'
+      end
+    end
+    
+    context "translating phone numbers" do
+      it "shold add a phone number" do
+        Faker::PhoneNumber.should_receive(:phone_number).and_return('555-555-5555')
+        set_field_value 'phone_number'
+        example.data_for('key').should have_field_value '555-555-5555'
       end
     end
 

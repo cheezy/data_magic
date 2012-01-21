@@ -112,5 +112,19 @@ module DataMagic
     def paragraphs(paragraph_count = 3)
       Faker::Lorem.paragraphs(paragraph_count).join('\n\n')
     end
+
+    #
+    # return a random email address
+    #
+    def email
+      Faker::Internet.email
+    end
+
+    #
+    # return a random phone number
+    #
+    def phone_number
+      Faker::PhoneNumber.phone_number
+    end
   end
 end
