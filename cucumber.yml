@@ -1,0 +1,1 @@
+default: --no-source --color --format Cucumber::Formatter::Fuubar
