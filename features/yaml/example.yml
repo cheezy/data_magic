@@ -1,4 +1,6 @@
 dm:
   value1: this is value 1
   value2: this is value 2
-
+  full_name: ~name
+  first_name: ~first_name
+  last_name: ~last_name

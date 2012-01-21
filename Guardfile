@@ -12,4 +12,5 @@ guard 'cucumber', :notification => true, :cli => '--profile default' do
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
   watch(%r{^lib/.+\.rb$})                   { 'features' }
+  watch(%r{^features/yaml/.+$})             { 'features' }
 end
