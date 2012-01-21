@@ -4,3 +4,18 @@ dm:
   full_name: ~name
   first_name: ~first_name
   last_name: ~last_name
+  street: ~street_address
+  city: ~city
+  state: ~state
+  state_ab: ~state_abbr
+  zip: ~zip_code
+  country: ~country
+  second_address: ~secondary_address
+  company: ~company_name
+  email: ~email
+  phone: ~phone_number
+  catch_phrase: ~catch_phrase
+  words: ~words
+  sentence: ~sentence
+  sentences: ~sentences
+  paragraphs: ~paragraphs
