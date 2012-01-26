@@ -9,8 +9,9 @@ module DataMagic
   include Translation
 
   def data_for(key)
+    DataMagic.load('default.yml') unless DataMagic.yml
     data = DataMagic.yml[key]
-    prep_data data
+    prep_data data.clone
   end
 
   private

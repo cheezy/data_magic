@@ -9,7 +9,7 @@ describe "DataMagic translations" do
     let(:example) { TestSubject.new }
 
     def set_field_value(value)
-      DataMagic.should_receive(:yml).and_return({'key' => {'field' => value}})
+      DataMagic.should_receive(:yml).twice.and_return({'key' => {'field' => value}})
     end
     
     it "should deliver the hash from the yaml" do
@@ -18,10 +18,26 @@ describe "DataMagic translations" do
     end
 
 
+    it "should default to use a file named 'default.yml'" do
+      DataMagic::Config.yml_directory = 'test'
+      YAML.should_receive(:load_file).with("test/default.yml").and_return({})
+      DataMagic.should_receive(:yml).and_return(nil)
+      DataMagic.should_receive(:yml).and_return({'key' => {'field' => 'value'}})
+      example.data_for('key').should have_field_value 'value'
+    end
+
+    it "should clone the data returned so it can be resued" do
+      yaml = double('yaml')
+      DataMagic.should_receive(:yml).twice.and_return(yaml)
+      yaml.should_receive(:[]).and_return(yaml)
+      yaml.should_receive(:clone).and_return({'field' => 'value'})
+      example.data_for('key').should have_field_value 'value'
+    end
+
     context "translating random names" do
       it "should add a name" do
         Faker::Name.should_receive(:name).and_return('Joseph')
-        set_field_value '~name'
+        set_field_value '~full_name'
         example.data_for('key').should have_field_value 'Joseph'
       end
 
@@ -93,7 +109,7 @@ describe "DataMagic translations" do
     context "translating email address" do
       it "should add an email address" do
         Faker::Internet.should_receive(:email).and_return('buddy@example.com')
-        set_field_value '~email'
+        set_field_value '~email_address'
         example.data_for('key').should have_field_value 'buddy@example.com'
       end
     end

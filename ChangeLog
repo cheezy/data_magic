@@ -1,0 +1,8 @@
+=== Version 0.2 / 2012-1-26
+* Defaulted yaml file to 'default.yaml'
+* Cloned hash so data can be reused
+* Renamed #name translation method to #full_name
+* Renamed #email translation method to #email_address
+
+=== Version 0.1 / 2012-1-21
+Initial Release

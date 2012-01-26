@@ -3,7 +3,7 @@ module DataMagic
     #
     # return a random name (first and last)
     #
-    def name
+    def full_name
       Faker::Name.name
     end
 
@@ -116,7 +116,7 @@ module DataMagic
     #
     # return a random email address
     #
-    def email
+    def email_address
       Faker::Internet.email
     end
 
