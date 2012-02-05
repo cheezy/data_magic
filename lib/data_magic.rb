@@ -8,10 +8,10 @@ require 'faker'
 module DataMagic
   include Translation
 
-  def data_for(key)
+  def data_for(key, additional={})
     DataMagic.load('default.yml') unless DataMagic.yml
     data = DataMagic.yml[key]
-    prep_data data.clone
+    prep_data data.merge(additional).clone
   end
 
   private

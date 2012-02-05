@@ -17,7 +17,6 @@ describe "DataMagic translations" do
       example.data_for('key').should have_field_value 'value'
     end
 
-
     it "should default to use a file named 'default.yml'" do
       DataMagic::Config.yml_directory = 'test'
       YAML.should_receive(:load_file).with("test/default.yml").and_return({})
@@ -28,8 +27,18 @@ describe "DataMagic translations" do
 
     it "should clone the data returned so it can be resued" do
       yaml = double('yaml')
+      yaml.stub(:merge).and_return(yaml)
       DataMagic.should_receive(:yml).twice.and_return(yaml)
       yaml.should_receive(:[]).and_return(yaml)
+      yaml.should_receive(:clone).and_return({'field' => 'value'})
+      example.data_for('key').should have_field_value 'value'
+    end
+
+    it "should merge the provided data with the yaml data" do
+      yaml = double('yaml')
+      DataMagic.should_receive(:yml).twice.and_return(yaml)
+      yaml.should_receive(:[]).and_return(yaml)
+      yaml.should_receive(:merge).and_return(yaml)
       yaml.should_receive(:clone).and_return({'field' => 'value'})
       example.data_for('key').should have_field_value 'value'
     end
