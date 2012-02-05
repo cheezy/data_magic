@@ -1,3 +1,6 @@
+=== Version 0.3 / 2012-2-5
+* Added additional data merge to #data_for
+
 === Version 0.2 / 2012-1-26
 * Defaulted yaml file to 'default.yaml'
 * Cloned hash so data can be reused
