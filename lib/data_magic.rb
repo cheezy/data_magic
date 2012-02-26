@@ -19,6 +19,7 @@ module DataMagic
   def prep_data(data)
     data.each do |key, value|
       unless value.nil?
+        next unless value.respond_to? '[]'
         data[key] = eval(value[1..-1]) if value[0] == "~"
       end
     end
