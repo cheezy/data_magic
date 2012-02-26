@@ -202,5 +202,17 @@ describe "DataMagic translations" do
         example.data_for('key')['field'].split('\n\n').size.should == 10
       end
     end
+
+    context "translating boolean values" do
+      it "should resolve true" do
+        set_field_value true
+        example.data_for('key').should have_field_value true
+      end
+
+      it "should resolve false" do
+        set_field_value false
+        example.data_for('key').should have_field_value false
+      end
+    end
   end
 end
