@@ -16,6 +16,10 @@ Then /^the value for "(.+)" should be "(.+)"$/ do |key, value|
   @data[key].should == value
 end
 
+Then /^the value for "(.+)" should be (true|false)$/ do |key, value|
+  @data[key].should == eval(value)
+end
+
 Then /^the value for "(.+)" should be (\d+) word|words long$/ do |key, length|
   @data[key].split(' ').size.should == length.to_i
 end
