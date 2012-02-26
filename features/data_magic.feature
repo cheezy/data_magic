@@ -38,3 +38,6 @@ Feature: Functionality of the data_magic gem
     And the value for "sentences" should exist
     And the value for "paragraphs" should exist
 
+  Scenario: Boolean values
+    Then the value for "bool_true" should be true
+    And the value for "bool_false" should be false

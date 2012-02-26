@@ -19,3 +19,5 @@ dm:
   sentence: ~sentence
   sentences: ~sentences
   paragraphs: ~paragraphs
+  bool_true: true
+  bool_false: false
