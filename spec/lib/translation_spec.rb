@@ -17,6 +17,11 @@ describe "DataMagic translations" do
       example.data_for('key').should have_field_value 'value'
     end
 
+    it "should allow you to use a symbol for the key" do
+      set_field_value 'value'
+      example.data_for(:key).should have_field_value 'value'
+    end
+
     it "should default to use a file named 'default.yml'" do
       DataMagic::Config.yml_directory = 'test'
       YAML.should_receive(:load_file).with("test/default.yml").and_return({})

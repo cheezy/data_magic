@@ -10,7 +10,7 @@ module DataMagic
 
   def data_for(key, additional={})
     DataMagic.load('default.yml') unless DataMagic.yml
-    data = DataMagic.yml[key]
+    data = DataMagic.yml[key.to_s]
     prep_data data.merge(additional).clone
   end
 
