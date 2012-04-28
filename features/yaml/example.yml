@@ -21,3 +21,8 @@ dm:
   paragraphs: ~paragraphs
   bool_true: true
   bool_false: false
+
+other:
+  name: Cheezy
+  address: 123 Main Street
+  email: cheezy@example.com

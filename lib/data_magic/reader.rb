@@ -6,7 +6,7 @@ module DataMagic
     # load a file from the config directory and parse into a hash
     #
     def load_file(filename)
-      yml = YAML.load_file "#{::DataMagic::Config.yml_directory}/#{filename}"
+      YAML.load_file "#{::DataMagic::Config.yml_directory}/#{filename}"
     end
   end
 end

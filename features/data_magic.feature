@@ -41,3 +41,16 @@ Feature: Functionality of the data_magic gem
   Scenario: Boolean values
     Then the value for "bool_true" should be true
     And the value for "bool_false" should be false
+
+  Scenario: Reading multiple data segments
+    When I ask for the data for "other"
+    Then the value for "name" should be "Cheezy"
+    And the value for "address" should be "123 Main Street"
+    And the value for "email" should be "cheezy@example.com"
+
+  Scenario: Reading from multiple yml files
+    When I load the file "another.yml"
+    And I ask for the data for "other_file"
+    Then the value for "name" should be "Sneezy"
+    And the value for "address" should be "555 Easy Money Drive"
+    And the value for "email" should be "sneezy@example.com"

@@ -31,3 +31,8 @@ end
 Then /^the value for "(.+)" should exist$/ do |key|
   @data[key].should_not be_nil
 end
+
+
+When /^I load the file "(.+)"$/ do |file_name|
+  DataMagic.load file_name
+end
