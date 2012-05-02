@@ -54,3 +54,12 @@ Feature: Functionality of the data_magic gem
     Then the value for "name" should be "Sneezy"
     And the value for "address" should be "555 Easy Money Drive"
     And the value for "email" should be "sneezy@example.com"
+
+  Scenario: Reading multiple entries from same file
+    When I load the file "another.yml"
+    And I ask for the data for "other_file"
+    Then the value for "name" should be "Sneezy"
+    When I ask for the data for "more_info"
+    Then the value for "name" should be "Wheezy"
+    And the value for "address" should be "999 Alergy Ave"
+    And the value for "email" should be "wheezy@example.com"

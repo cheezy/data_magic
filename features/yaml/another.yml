@@ -2,3 +2,8 @@ other_file:
   name: Sneezy
   address: 555 Easy Money Drive
   email: sneezy@example.com
+
+more_info:
+  name: Wheezy
+  address: 999 Alergy Ave
+  email: wheezy@example.com
