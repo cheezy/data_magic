@@ -9,7 +9,9 @@ module DataMagic
       # files will be located.
       #
       def yml_directory
-        @data_magic_yml_directory ||= 'config'
+        $stderr.puts "*** DEPRECATION WARNING"
+        $stderr.puts "*** DataMagic::Config has being deprecated and will be removed soon."
+        $stderr.puts "*** Please use DataMagic.yml_directory."
       end
 
       #
@@ -17,7 +19,9 @@ module DataMagic
       # all of the yml files.
       #
       def yml_directory=(value)
-        @data_magic_yml_directory = value
+        $stderr.puts "*** DEPRECATION WARNING"
+        $stderr.puts "*** DataMagic::Config has being deprecated and will be removed soon."
+        $stderr.puts "*** Please use DataMagic.yml_directory=."
       end
       
     end

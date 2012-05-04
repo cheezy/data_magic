@@ -8,7 +8,7 @@ and tests.  The data is stored in yaml files.
 In order to use _data_magic_ you will have to inform the gem where it can find the yaml files.  You can do this with the following code:
 
 ````ruby
-DataMagic::Config.yml_directory = 'data/yml'
+DataMagic.yml_directory = 'data/yml'
 ````
 
 If you do not specify a directory the gem will default to using a directory named _config_. You should only have to set the directory once.

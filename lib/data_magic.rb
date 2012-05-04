@@ -2,11 +2,13 @@ require "data_magic/version"
 require "data_magic/config"
 require "data_magic/reader"
 require "data_magic/translation"
+require 'yml_reader'
 
 require 'faker'
 
 module DataMagic
   include Translation
+  extend YmlReader
 
   def data_for(key, additional={})
     DataMagic.load('default.yml') unless DataMagic.yml
@@ -26,21 +28,12 @@ module DataMagic
     data
   end
 
-
   class << self
     attr_reader :yml
-    
-    #
-    # load the provided filename from the config directory
-    #
-    def load(filename)
-      @yml = reader.load_file(filename)
-    end
-
-    private
   
-    def reader
-      @reader ||= DataMagic::Reader.new
+    def default_directory
+      'config'
     end
   end
+
 end
