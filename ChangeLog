@@ -1,3 +1,7 @@
+=== Version 0.6 / 2012-5-4
+* Fixes
+  * Minor fix so it works properly with ruby 1.8.7
+
 === Version 0.5 / 2012-3-24
 * Enhancements
   * Added ability to use symbol for the key in the data_for method
