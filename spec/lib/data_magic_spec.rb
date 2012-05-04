@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe DataMagic do
   context "when configuring the yml directory" do
+    before(:each) do
+      DataMagic.yml_directory = nil
+    end
+    
     it "should default to a directory named config" do
       DataMagic.yml_directory.should == 'config'
     end
