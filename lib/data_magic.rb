@@ -30,7 +30,7 @@ module DataMagic
     attr_reader :yml
   
     def default_directory
-      'config'
+      'config/data'
     end
   end
 

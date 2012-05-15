@@ -7,7 +7,7 @@ describe DataMagic do
     end
     
     it "should default to a directory named config" do
-      DataMagic.yml_directory.should == 'config'
+      DataMagic.yml_directory.should == 'config/data'
     end
 
     it "should store a yml directory" do

@@ -1,6 +1,7 @@
 === Version 0.7
 * Enhancements
   * Refactored to use yml_reader to remove duplication
+  * Changed default directory from 'config' to 'config/data'
 * Fixes
   * Removed unused classes after refactoring
 
