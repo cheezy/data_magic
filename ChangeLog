@@ -1,3 +1,9 @@
+=== Version 0.7
+* Enhancements
+  * Refactored to use yml_reader to remove duplication
+* Fixes
+  * Removed unused classes after refactoring
+
 === Version 0.6 / 2012-5-4
 * Fixes
   * Minor fix so it works properly with ruby 1.8.7

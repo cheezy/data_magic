@@ -1,6 +1,4 @@
 require "data_magic/version"
-require "data_magic/config"
-require "data_magic/reader"
 require "data_magic/translation"
 require 'yml_reader'
 
