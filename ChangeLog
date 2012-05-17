@@ -1,4 +1,4 @@
-=== Version 0.7
+=== Version 0.7 / 2012-5-17
 * Enhancements
   * Refactored to use yml_reader to remove duplication
   * Changed default directory from 'config' to 'config/data'
