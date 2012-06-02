@@ -13,7 +13,7 @@ In order to use _data_magic_ you will have to inform the gem where it can find t
 DataMagic.yml_directory = 'data/yml'
 ````
 
-If you do not specify a directory the gem will default to using a directory named _config_. You should only have to set the directory once.
+If you do not specify a directory the gem will default to using a directory named _config/data_. You should only have to set the directory once.
 
 After setting the directory you must load a file.  This can be accomplished by calling the _load_ method.
 
