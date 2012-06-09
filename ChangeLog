@@ -1,6 +1,7 @@
 === Version 0.8 / 2012-6-9
 * Enhancements
   * Made yml writable
+  * Updated yml_reader dependency to version 0.2
 
 === Version 0.7 / 2012-5-17
 * Enhancements
