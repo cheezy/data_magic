@@ -3,8 +3,13 @@ class TestClass
 end
 
 
-Given /^I have read the yaml file$/ do
+Given /^I have read the yaml file from features\/yaml$/ do
+  DataMagic.yml_directory = 'features/yaml'
   DataMagic.load "example.yml"
+end
+
+Given /^I have read the default yaml file from the default location$/ do
+
 end
 
 When /^I ask for the data for "(.+)"$/ do |key|

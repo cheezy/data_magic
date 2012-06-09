@@ -1,7 +1,7 @@
 Feature: Functionality of the data_magic gem
   
   Background:
-    Given I have read the yaml file
+    Given I have read the yaml file from features/yaml
     When I ask for the data for "dm"
 
   Scenario: Getting basic data from the yaml
