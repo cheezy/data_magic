@@ -1,3 +1,7 @@
+=== Version 0.8 / 2012-6-9
+* Enhancements
+  * Made yml writable
+
 === Version 0.7 / 2012-5-17
 * Enhancements
   * Refactored to use yml_reader to remove duplication

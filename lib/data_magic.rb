@@ -27,7 +27,7 @@ module DataMagic
   end
 
   class << self
-    attr_reader :yml
+    attr_accessor :yml
   
     def default_directory
       'config/data'
