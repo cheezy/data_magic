@@ -106,7 +106,7 @@ describe "DataMagic translations" do
       end
 
       it "should add a zip code" do
-        Faker::Address.should_receive(:zip_code).and_return('11111')
+        Faker::Address.should_receive(:zip).and_return('11111')
         set_field_value '~zip_code'
         example.data_for('key').should have_field_value '11111'
       end
@@ -132,11 +132,23 @@ describe "DataMagic translations" do
       end
     end
 
-    context "translating email address" do
+    context "translating internet names" do
       it "should add an email address" do
         Faker::Internet.should_receive(:email).and_return('buddy@example.com')
         set_field_value '~email_address'
         example.data_for('key').should have_field_value 'buddy@example.com'
+      end
+
+      it "should add a domain name" do
+        Faker::Internet.should_receive(:domain_name).and_return("google.com")
+        set_field_value '~domain_name'
+        example.data_for('key').should have_field_value 'google.com'
+      end
+
+      it "should add a user name" do
+        Faker::Internet.should_receive(:user_name).and_return('very_cheezy')
+        set_field_value '~user_name'
+        example.data_for('key').should have_field_value 'very_cheezy'
       end
     end
     

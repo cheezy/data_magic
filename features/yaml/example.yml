@@ -15,6 +15,8 @@ dm:
   second_address: ~secondary_address
   company: ~company_name
   email: ~email_address
+  domain_name: ~domain_name
+  user_name: ~user_name
   phone: ~phone_number
   catch_phrase: ~catch_phrase
   words: ~words

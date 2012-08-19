@@ -29,6 +29,8 @@ Feature: Functionality of the data_magic gem
 
   Scenario: Getting an email address from the yaml
     Then the value for "email" should be 1 word long
+    And the value for "domain_name" should be 1 word long
+    And the value for "user_name" should be 1 word long
 
   Scenario: Getting a phone number
     Then the value for "phone" should have a minimum of 1 word

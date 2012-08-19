@@ -71,10 +71,10 @@ module DataMagic
     end
 
     #
-    # return a random zip code
+    # return a random 5 or 9 digit zip code
     #
     def zip_code
-      Faker::Address.zip_code
+      Faker::Address.zip
     end
 
     #
@@ -132,6 +132,20 @@ module DataMagic
     #
     def email_address
       Faker::Internet.email
+    end
+
+    #
+    # return a random domain name
+    #
+    def domain_name
+      Faker::Internet.domain_name
+    end
+
+    #
+    # return a random user name
+    #
+    def user_name
+      Faker::Internet.user_name
     end
 
     #

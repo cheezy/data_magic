@@ -2,6 +2,9 @@
 * Enhancements
   * Added name_prefix translator
   * Added name_suffix translator
+  * Added domain_name translator
+  * Added user_name translator
+
 
 === Version 0.8 / 2012-6-9
 * Enhancements
