@@ -26,7 +26,6 @@ Then /^the value for "(.+)" should be (true|false)$/ do |key, value|
 end
 
 Then /^the value for "(.+)" should be (\d+) word|words long$/ do |key, length|
-  puts @data[key]
   @data[key].split(' ').size.should == length.to_i
 end
 
