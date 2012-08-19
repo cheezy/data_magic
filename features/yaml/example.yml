@@ -4,6 +4,8 @@ dm:
   full_name: ~full_name
   first_name: ~first_name
   last_name: ~last_name
+  name_prefix: ~name_prefix
+  name_suffix: ~name_suffix
   street: ~street_address
   city: ~city
   state: ~state

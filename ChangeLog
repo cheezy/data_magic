@@ -1,3 +1,8 @@
+== Version 0.9
+* Enhancements
+  * Added name_prefix translator
+  * Added name_suffix translator
+
 === Version 0.8 / 2012-6-9
 * Enhancements
   * Made yml writable

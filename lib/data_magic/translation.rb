@@ -22,6 +22,20 @@ module DataMagic
     end
 
     #
+    # return a random name prefix
+    #
+    def name_prefix
+      Faker::Name.prefix
+    end
+
+    #
+    # return a random name suffix
+    #
+    def name_suffix
+      Faker::Name.suffix
+    end
+
+    #
     # return a random street address
     #
     def street_address

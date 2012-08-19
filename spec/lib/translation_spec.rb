@@ -66,6 +66,18 @@ describe "DataMagic translations" do
         set_field_value '~last_name'
         example.data_for('key').should have_field_value 'Smith'
       end
+
+      it "should add name prefix" do
+        Faker::Name.should_receive(:prefix).and_return("Mr")
+        set_field_value '~name_prefix'
+        example.data_for('key').should have_field_value 'Mr'
+      end
+
+      it "should add name suffix" do
+        Faker::Name.should_receive(:suffix).and_return('Jr')
+        set_field_value '~name_suffix'
+        example.data_for('key').should have_field_value 'Jr'
+      end
     end
 
     context "translating random addresses" do
