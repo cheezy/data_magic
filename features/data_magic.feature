@@ -41,6 +41,7 @@ Feature: Functionality of the data_magic gem
     And the value for "sentence" should exist
     And the value for "sentences" should exist
     And the value for "paragraphs" should exist
+    And the value for "characters" should be 255 characters long
 
   Scenario: Boolean values
     Then the value for "bool_true" should be true

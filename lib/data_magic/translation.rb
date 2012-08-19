@@ -128,6 +128,13 @@ module DataMagic
     end
 
     #
+    # return random characters - default is 255 characters
+    #
+    def characters(character_count = 255)
+      Faker::Lorem.characters(character_count)
+    end
+
+    #
     # return a random email address
     #
     def email_address

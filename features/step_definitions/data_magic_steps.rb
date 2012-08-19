@@ -33,6 +33,10 @@ Then /^the value for "(.+)" should have a minimum of (\d+) word|wordss$/ do |key
   @data[key].split(' ').size.should >= length.to_i
 end
 
+Then /^the value for "(.*?)" should be (\d+) characters long$/ do |key, length|
+  @data[key].length.should == length.to_i
+end
+
 Then /^the value for "(.+)" should exist$/ do |key|
   @data[key].should_not be_nil
 end

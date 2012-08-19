@@ -23,6 +23,7 @@ dm:
   sentence: ~sentence
   sentences: ~sentences
   paragraphs: ~paragraphs
+  characters: ~characters
   bool_true: true
   bool_false: false
 

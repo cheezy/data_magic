@@ -230,6 +230,12 @@ describe "DataMagic translations" do
         set_field_value '~paragraphs(10)'
         example.data_for('key')['field'].split('\n\n').size.should == 10
       end
+
+      it "should add characters" do
+        Faker::Lorem.should_receive(:characters).and_return('abcdefg')
+        set_field_value '~characters'
+        example.data_for('key').should have_field_value 'abcdefg'
+      end
     end
 
     context "translating boolean values" do
