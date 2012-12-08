@@ -26,6 +26,8 @@ dm:
   characters: ~characters
   bool_true: true
   bool_false: false
+  random: ~randomize ['Tom', 'Dick', 'Harry']
+  range:  ~randomize 1..5
 
 other:
   name: Cheezy

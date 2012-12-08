@@ -161,5 +161,16 @@ module DataMagic
     def phone_number
       Faker::PhoneNumber.phone_number
     end
+
+    #
+    # return a random value from an array or range
+    #
+    def randomize(value)
+      case value
+      when Array then value[rand(value.size)]
+      when Range then rand((value.last+1) - value.first) + value.first
+      else value
+      end
+    end
   end
 end

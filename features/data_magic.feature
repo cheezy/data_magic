@@ -68,3 +68,7 @@ Feature: Functionality of the data_magic gem
     Then the value for "name" should be "Wheezy"
     And the value for "address" should be "999 Alergy Ave"
     And the value for "email" should be "wheezy@example.com"
+
+  Scenario: Returning a randomly selected value from an array
+    Then the value for "random" should be either "Tom", "Dick", or "Harry"
+    And the value for "range" should be between 1 and 5

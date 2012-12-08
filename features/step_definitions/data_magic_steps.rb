@@ -41,7 +41,16 @@ Then /^the value for "(.+)" should exist$/ do |key|
   @data[key].should_not be_nil
 end
 
-
 When /^I load the file "(.+)"$/ do |file_name|
   DataMagic.load file_name
+end
+
+Then /^the value for "(.*?)" should be either "(.*?)", "(.*?)", or "(.*?)"$/ do |key, vala, valb, valc|
+  [vala, valb, valc].should include @data[key]
+end
+
+Then /^the value for "(.*?)" should be between (\d+) and (\d+)$/ do |key, low, high|
+  value = @data[key]
+  value.should >= low.to_i
+  value.should <= high.to_i
 end
