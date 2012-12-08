@@ -172,5 +172,24 @@ module DataMagic
       else value
       end
     end
+
+    #
+    # return a value based on a mast
+    # The # character will be replaced with a number
+    # The A character will be replaced with an upper case letter
+    # The a character will be replaced with a lower case letter
+    #
+    def mask(value)
+      result = ''
+      value.each_char do |ch|
+        case ch
+        when '#' then result += randomize(0..9).to_s
+        when 'A' then result += ('A'..'Z').to_a[rand(26)]
+        when 'a' then result += ('a'..'z').to_a[rand(26)]
+        else result += ch
+        end
+      end
+      result
+    end
   end
 end

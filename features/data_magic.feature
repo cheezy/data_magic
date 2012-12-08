@@ -72,3 +72,8 @@ Feature: Functionality of the data_magic gem
   Scenario: Returning a randomly selected value from an array
     Then the value for "random" should be either "Tom", "Dick", or "Harry"
     And the value for "range" should be between 1 and 5
+
+  Scenario: Returning a value based on a mask
+    Then the value for "mask" should begin with 3 numbers
+    And the value for "mask" should have 3 upper case letters after a dash
+    And the value for "mask" should end with 3 lower case letters
