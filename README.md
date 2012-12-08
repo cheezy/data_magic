@@ -66,6 +66,14 @@ You can call one of many built-in methods in your yaml file to randomize the dat
       pay_type: ~randomize ['Credit card', 'Purchase order', 'Check']
 
 
+## Documentation
+
+The rdocs for this project can be found at [rubydoc.info](http://rubydoc.info/github/cheezy/data_magic/master/frames).
+
+To see the changes from release to release please look at the [ChangeLog](https://raw.github.com/cheezy/data_magic/master/ChangeLog)
+
+
+
 ## Known Issues
 
 See [http://github.com/cheezy/data_magic/issues](http://github.com/cheezy/data_magic/issues)
