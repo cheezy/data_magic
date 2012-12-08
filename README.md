@@ -41,11 +41,30 @@ end
 
 Notice that I am including the module on line 3.  On lin 8 I am calling the _data_for_ method passing the key _:my_page_.  The _populate_page_with_ method is a part of the page-object gem.
 
+Your data might look something like this:
+
+    my_page:
+      name: Cheezy
+      address: 123 Main Street
+      email: cheezy@example.com
+      pay_type: 'Credit card'
+
 In order to access the data directly you can just call the method on the module like this:
 
 ````ruby
   my_data = DataMagic.data_for :my_test
 ````
+
+## Data generators
+
+You can call one of many built-in methods in your yaml file to randomize the data.  Here is an example of how you would randomize the above yaml:
+
+    my_page:
+      name: ~full_name
+      address: ~street_address
+      email: ~email_address
+      pay_type: ~randomize ['Credit card', 'Purchase order', 'Check']
+
 
 ## Known Issues
 
