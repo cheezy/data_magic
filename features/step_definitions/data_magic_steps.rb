@@ -69,3 +69,7 @@ Then /^the value for "(.*?)" should end with (\d+) lower case letters$/ do |key,
   value = @data[key]
   value[-1 * num.to_i,num.to_i].downcase.should == value[-3,3]
 end
+
+Then /^the value for "(.*?)" should include "(.*?)"$/ do |key, value|
+  @data[key].should include value
+end

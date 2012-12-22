@@ -144,8 +144,8 @@ module DataMagic
     #
     # return a random email address
     #
-    def email_address
-      Faker::Internet.email
+    def email_address(name=nil)
+      Faker::Internet.email(name)
     end
 
     #
