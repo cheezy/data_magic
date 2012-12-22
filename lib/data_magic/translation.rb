@@ -156,6 +156,13 @@ module DataMagic
     end
 
     #
+    # return a random url
+    #
+    def url
+      Faker::Internet.url
+    end
+
+    #
     # return a random user name
     #
     def user_name

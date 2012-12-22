@@ -3,6 +3,7 @@
   * Added title translator
   * Added ability for street_address translator to also include secondary address
   * Added ability for email_address to accept the name portion of the value
+  * Added url translator
 
 === Version 0.10 / 2012-12-8
 * Enhancements

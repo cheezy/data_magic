@@ -34,6 +34,7 @@ Feature: Functionality of the data_magic gem
     And the value for "email_plus" should include "buddy"
     And the value for "domain_name" should be 1 word long
     And the value for "user_name" should be 1 word long
+    And the value for "url" should include "http://"
 
   Scenario: Getting a phone number
     Then the value for "phone" should have a minimum of 1 word
