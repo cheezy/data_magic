@@ -29,6 +29,7 @@ dm:
   random: ~randomize ['Tom', 'Dick', 'Harry']
   range:  ~randomize 1..5
   mask: ~mask "###-AAA_aaa"
+  title: ~title
 
 other:
   name: Cheezy

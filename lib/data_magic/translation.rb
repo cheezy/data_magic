@@ -36,6 +36,13 @@ module DataMagic
     end
 
     #
+    # return a random title
+    #
+    def title
+      Faker::Name.title
+    end
+
+    #
     # return a random street address
     #
     def street_address
