@@ -21,6 +21,7 @@ dm:
   url: ~url
   user_name: ~user_name
   phone: ~phone_number
+  cell: ~cell_phone
   catch_phrase: ~catch_phrase
   words: ~words
   sentence: ~sentence

@@ -173,7 +173,16 @@ module DataMagic
     # return a random phone number
     #
     def phone_number
-      Faker::PhoneNumber.phone_number
+      value = Faker::PhoneNumber.phone_number
+      remove_extension(value)
+    end
+
+    #
+    # return a random cell number
+    #
+    def cell_phone
+      value = Faker::PhoneNumber.cell_phone
+      remove_extension(value)
     end
 
     #
@@ -204,6 +213,14 @@ module DataMagic
         end
       end
       result
+    end
+
+    private
+
+    def remove_extension(phone)
+      index = phone.index('x')
+      phone = phone[0, (index-1)] if index
+      phone
     end
   end
 end

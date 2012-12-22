@@ -4,6 +4,8 @@
   * Added ability for street_address translator to also include secondary address
   * Added ability for email_address to accept the name portion of the value
   * Added url translator
+  * Added cell_phone translator
+  * Changed phone_number translator so it does not return an extension
 
 === Version 0.10 / 2012-12-8
 * Enhancements

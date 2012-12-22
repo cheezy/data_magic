@@ -37,7 +37,8 @@ Feature: Functionality of the data_magic gem
     And the value for "url" should include "http://"
 
   Scenario: Getting a phone number
-    Then the value for "phone" should have a minimum of 1 word
+    Then the value for "phone" should be 1 word long
+    And the value for "cell" should be 1 word long
 
   Scenario: Random phrases
     Then the value for "catch_phrase" should exist
