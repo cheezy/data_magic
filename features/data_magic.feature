@@ -18,6 +18,7 @@ Feature: Functionality of the data_magic gem
 
   Scenario: Getting addresses from the yaml
     Then the value for "street" should have a minimum of 2 words
+    And the value for "street_plus" should have a minimum of 4 words
     And the value for "city" should have a minimum of 1 word
     And the value for "state" should have a minimum of 1 word
     And the value for "state_ab" should be 1 word long

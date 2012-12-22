@@ -45,8 +45,8 @@ module DataMagic
     #
     # return a random street address
     #
-    def street_address
-      Faker::Address.street_address
+    def street_address(include_secondary=false)
+      Faker::Address.street_address(include_secondary)
     end
 
     #
