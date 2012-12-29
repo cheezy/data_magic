@@ -1,12 +1,14 @@
 require 'data_magic/core_ext/string'
 require "data_magic/version"
 require "data_magic/translation"
+require "data_magic/date_translation"
 require 'yml_reader'
 
 require 'faker'
 
 module DataMagic
   include Translation
+  include DateTranslation
   extend YmlReader
 
   def data_for(key, additional={})

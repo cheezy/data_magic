@@ -73,3 +73,17 @@ end
 Then /^the value for "(.*?)" should include "(.*?)"$/ do |key, value|
   @data[key].should include value
 end
+
+Then /^the value for "(.*?)" should be today\'s date$/ do |key|
+  @data[key].should == Date.today.strftime('%D')
+end
+
+Then /^the value for "(.*?)" should be tomorrow\'s date$/ do |key|
+  tomorrow = Date.today + 1
+  @data[key].should == tomorrow.strftime('%D')
+end
+
+Then /^the value for "(.*?)" should be yesterday\'s date$/ do |key|
+  yesterday = Date.today - 1
+  @data[key].should == yesterday.strftime('%D')
+end

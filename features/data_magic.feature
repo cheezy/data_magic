@@ -82,3 +82,10 @@ Feature: Functionality of the data_magic gem
     Then the value for "mask" should begin with 3 numbers
     And the value for "mask" should have 3 upper case letters after a dash
     And the value for "mask" should end with 3 lower case letters
+
+  Scenario: Returning dates
+    Then the value for "today" should be today's date
+    And the value for "tomorrow" should be tomorrow's date
+    And the value for "yesterday" should be yesterday's date
+
+

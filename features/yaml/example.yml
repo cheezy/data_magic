@@ -34,6 +34,9 @@ dm:
   range:  ~randomize 1..5
   mask: ~mask "###-AAA_aaa"
   title: ~title
+  today: ~today
+  tomorrow: ~tomorrow
+  yesterday: ~yesterday
 
 other:
   name: Cheezy
