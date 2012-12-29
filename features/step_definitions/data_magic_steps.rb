@@ -87,3 +87,13 @@ Then /^the value for "(.*?)" should be yesterday\'s date$/ do |key|
   yesterday = Date.today - 1
   @data[key].should == yesterday.strftime('%D')
 end
+
+Then /^the value for "(.*?)" should be five days from today$/ do |key|
+  the_day = Date.today + 5
+  @data[key].should == the_day.strftime('%D')
+end
+
+Then /^the value for "(.*?)" should be five days ago$/ do |key|
+  the_day = Date.today - 5
+  @data[key].should == the_day.strftime('%D')
+end

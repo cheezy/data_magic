@@ -88,4 +88,6 @@ Feature: Functionality of the data_magic gem
     And the value for "tomorrow" should be tomorrow's date
     And the value for "yesterday" should be yesterday's date
 
-
+  Scenario: Specifying number of days from today
+    Then the value for "5daysfromtoday" should be five days from today
+    And the value for "5daysago" should be five days ago

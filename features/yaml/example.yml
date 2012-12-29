@@ -37,6 +37,8 @@ dm:
   today: ~today
   tomorrow: ~tomorrow
   yesterday: ~yesterday
+  5daysfromtoday: ~5.days_from_today
+  5daysago: ~5.days_ago
 
 other:
   name: Cheezy

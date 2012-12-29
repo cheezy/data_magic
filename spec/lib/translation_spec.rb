@@ -249,5 +249,36 @@ describe "DataMagic translations" do
         example.data_for('key').should have_field_value false
       end
     end
+
+    context "providing date values" do
+      it "should provide today's date" do
+        set_field_value '~today'
+        example.data_for('key').should have_field_value Date.today.strftime('%D')
+      end
+
+      it "should provide tomorrow's date" do
+        set_field_value '~tomorrow'
+        tomorrow = Date.today + 1
+        example.data_for('key').should have_field_value tomorrow.strftime('%D')
+      end
+
+      it "should provide yesterday's date" do
+        set_field_value '~yesterday'
+        yesterday = Date.today - 1
+        example.data_for('key').should have_field_value yesterday.strftime('%D')
+      end
+
+      it "should provide a date that is some number of days from now" do
+        set_field_value '~5.days_from_today'
+        the_date = Date.today + 5
+        example.data_for('key').should have_field_value the_date.strftime('%D')
+      end
+
+      it "should provide a date that is some number of days ago" do
+        set_field_value '~5.days_ago'
+        the_date = Date.today - 5
+        example.data_for('key').should have_field_value the_date.strftime('%D')
+      end
+    end
   end
 end

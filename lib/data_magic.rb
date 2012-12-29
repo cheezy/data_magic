@@ -1,4 +1,5 @@
 require 'data_magic/core_ext/string'
+require 'data_magic/core_ext/fixnum'
 require "data_magic/version"
 require "data_magic/translation"
 require "data_magic/date_translation"
