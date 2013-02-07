@@ -11,6 +11,7 @@ module DataMagic
     def today(format = '%D')
       Date.today.strftime(format)
     end
+    alias_method :dm_today, :today
 
     #
     # return tomorrow's date
@@ -24,6 +25,7 @@ module DataMagic
       tomorrow = Date.today + 1
       tomorrow.strftime(format)
     end
+    alias_method :dm_tomorrow, :tomorrow
 
     #
     # return yesterday's date
@@ -37,5 +39,6 @@ module DataMagic
       yesterday = Date.today - 1
       yesterday.strftime(format)
     end
+    alias_method :dm_yesterday, :yesterday
   end
 end
