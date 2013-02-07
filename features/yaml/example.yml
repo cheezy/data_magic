@@ -39,6 +39,7 @@ dm:
   yesterday: ~yesterday
   5daysfromtoday: ~5.days_from_today
   5daysago: ~5.days_ago
+  some_month: ~month
 
 other:
   name: Cheezy

@@ -91,3 +91,6 @@ Feature: Functionality of the data_magic gem
   Scenario: Specifying number of days from today
     Then the value for "5daysfromtoday" should be five days from today
     And the value for "5daysago" should be five days ago
+
+  Scenario: Getting a random month name
+    Then the value for "some_month" should be a valid month

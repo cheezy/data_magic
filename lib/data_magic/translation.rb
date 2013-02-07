@@ -215,6 +215,10 @@ module DataMagic
       result
     end
 
+    def month
+      randomize(%w[January February March April May June July August September October November December])
+    end
+
     private
 
     def remove_extension(phone)

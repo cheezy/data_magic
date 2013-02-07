@@ -97,3 +97,8 @@ Then /^the value for "(.*?)" should be five days ago$/ do |key|
   the_day = Date.today - 5
   @data[key].should == the_day.strftime('%D')
 end
+
+Then /^the value for "(.*?)" should be a valid month$/ do |key|
+  months = %w[January February March April May June July August September October November December]
+  months.should include @data[key]
+end
