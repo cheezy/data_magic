@@ -41,6 +41,9 @@ dm:
   5daysago: ~5.days_ago
   some_month: ~month
 
+dynamic:
+  blah: ~blah
+
 other:
   name: Cheezy
   address: 123 Main Street

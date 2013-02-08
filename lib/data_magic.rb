@@ -12,6 +12,12 @@ module DataMagic
   include DateTranslation
   extend YmlReader
 
+  def self.included(cls)
+    translators.each do |translator|
+      cls.send :include, translator
+    end
+  end
+
   def data_for(key, additional={})
     DataMagic.load('default.yml') unless DataMagic.yml
     data = DataMagic.yml[key.to_s]
@@ -35,6 +41,14 @@ module DataMagic
   
     def default_directory
       'config/data'
+    end
+
+    def add_translator(translator)
+      translators << translator
+    end
+
+    def translators
+      @translators ||= []
     end
   end
 

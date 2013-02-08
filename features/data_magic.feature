@@ -94,3 +94,7 @@ Feature: Functionality of the data_magic gem
 
   Scenario: Getting a random month name
     Then the value for "some_month" should be a valid month
+
+  Scenario: It should allow one to add new translator methods
+    When I add the blah translator
+    Then the value for "blah" should be "foobar"

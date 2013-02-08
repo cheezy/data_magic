@@ -1,5 +1,6 @@
 === Version 0.13
 * Enhancements
+  * Added add_translator method to DataMagic to allow custom translators to be added
   * Added months translator
   * Added dm_* aliases for all generators
 

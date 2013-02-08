@@ -102,3 +102,19 @@ Then /^the value for "(.*?)" should be a valid month$/ do |key|
   months = %w[January February March April May June July August September October November December]
   months.should include @data[key]
 end
+
+
+When /^I add the blah translator$/ do
+  module Blah
+    def blah
+      'foobar'
+    end
+  end
+  DataMagic.add_translator(Blah)
+
+  class TranslatorAdded
+    include DataMagic
+  end
+  ta = TranslatorAdded.new
+  @data = ta.data_for 'dynamic'
+end
