@@ -2,14 +2,11 @@ require 'data_magic/core_ext/string'
 require 'data_magic/core_ext/fixnum'
 require "data_magic/version"
 require "data_magic/translation"
-require "data_magic/date_translation"
 require 'yml_reader'
-
 require 'faker'
 
 module DataMagic
   include Translation
-  include DateTranslation
   extend YmlReader
 
   def self.included(cls)
@@ -30,10 +27,14 @@ module DataMagic
     data.each do |key, value|
       unless value.nil?
         next unless value.respond_to? '[]'
-        data[key] = eval(value[1..-1]) if value[0,1] == "~"
+        data[key] = translate(value[1..-1]) if value[0,1] == "~"
       end
     end
     data
+  end
+
+  def translate(value)
+    eval(value)
   end
 
   class << self

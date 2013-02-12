@@ -1,5 +1,9 @@
+require 'data_magic/date_translation'
+
 module DataMagic
   module Translation
+    include DateTranslation
+    
     #
     # return a random name (first and last)
     #
@@ -244,7 +248,7 @@ module DataMagic
     alias_method :dm_mask, :mask
 
     def month
-      randomize(%w[January February March April May June July August September October November December])
+      randomize(Date::MONTHNAMES[1..-1])
     end
 
     private
