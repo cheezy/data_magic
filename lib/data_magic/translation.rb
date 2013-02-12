@@ -247,10 +247,6 @@ module DataMagic
     end
     alias_method :dm_mask, :mask
 
-    def month
-      randomize(Date::MONTHNAMES[1..-1])
-    end
-
     private
 
     def remove_extension(phone)

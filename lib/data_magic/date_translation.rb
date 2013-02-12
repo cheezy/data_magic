@@ -40,5 +40,14 @@ module DataMagic
       yesterday.strftime(format)
     end
     alias_method :dm_yesterday, :yesterday
+
+    #
+    # return a month
+    #
+    def month
+      randomize(Date::MONTHNAMES[1..-1])
+    end
+    alias_method :dm_month, :month
+
   end
 end
