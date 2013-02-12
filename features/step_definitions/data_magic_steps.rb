@@ -103,6 +103,10 @@ Then /^the value for "(.*?)" should be a valid month$/ do |key|
   months.should include @data[key]
 end
 
+Then /^the value for "(.*?)" should be a valid month abbreviation$/ do |key|
+  months = %w[Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec]
+  months.should include @data[key]
+end
 
 When /^I add the blah translator$/ do
   module Blah

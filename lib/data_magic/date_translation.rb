@@ -49,5 +49,12 @@ module DataMagic
     end
     alias_method :dm_month, :month
 
+    #
+    # return a month abbreviation
+    #
+    def month_abbr
+      randomize(Date::ABBR_MONTHNAMES[1..-1])
+    end
+
   end
 end
