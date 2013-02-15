@@ -65,6 +65,9 @@ module DataMagic
     end
     alias_method :dm_day_of_week, :day_of_week
 
-    
+    def day_of_week_abbr
+      randomize(Date::ABBR_DAYNAMES)
+    end
+    alias_method :dm_day_of_week_abbr, :day_of_week_abbr
   end
 end

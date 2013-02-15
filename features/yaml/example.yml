@@ -42,6 +42,7 @@ dm:
   some_month: ~month
   month_abbr: ~month_abbr
   some_day: ~day_of_week
+  day_abbr: ~day_of_week_abbr
 
 dynamic:
   blah: ~blah

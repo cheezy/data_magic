@@ -1,7 +1,8 @@
-=== Version 0.14
+=== Version 0.14 / 2013-2-14
 * Enhancements
   * Added months_abbr translator
   * Added day_of_week translator
+  * Added day_of_week_abbr translator
   * Changed so translator methods are not call after mixing with class
 
 === Version 0.13 / 2013-2-7
