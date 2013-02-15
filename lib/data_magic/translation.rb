@@ -1,7 +1,7 @@
 require 'data_magic/date_translation'
 
 module DataMagic
-  module Translation
+  class Translation
     include DateTranslation
     
     #
@@ -247,7 +247,13 @@ module DataMagic
     end
     alias_method :dm_mask, :mask
 
+
+
     private
+
+    def process(value)
+      eval value
+    end
 
     def remove_extension(phone)
       index = phone.index('x')

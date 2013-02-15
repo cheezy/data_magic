@@ -6,12 +6,11 @@ require 'yml_reader'
 require 'faker'
 
 module DataMagic
-  include Translation
   extend YmlReader
 
   def self.included(cls)
     translators.each do |translator|
-      cls.send :include, translator
+      Translation.send :include, translator
     end
   end
 
@@ -34,7 +33,7 @@ module DataMagic
   end
 
   def translate(value)
-    eval(value)
+    Translation.new.send :process, value
   end
 
   class << self

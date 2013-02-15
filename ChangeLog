@@ -1,3 +1,8 @@
+=== Version 0.14
+* Enhancements
+  * Added months_abbr translator
+  * Changed so translator methods are not call after mixing with class
+
 === Version 0.13 / 2013-2-7
 * Enhancements
   * Added add_translator method to DataMagic to allow custom translators to be added
