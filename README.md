@@ -95,16 +95,17 @@ Here is a list of the built-in methods:
 If you wish to add your own built-in methods you can simply pass a module
 to _DataMagic_ and all of the methods will be available.
 
-
-    module MyData
-      def abc
-        'abc'
-      end
-    end
+````ruby
+module MyData
+  def abc
+    'abc'
+  end
+end
+   
+DataMagic.add_translator MyData
     
-    DataMagic.add_translator MyData
-    
-    # can now use ~abc in my yml files
+# can now use ~abc in my yml files
+````
 
 ## Documentation
 
