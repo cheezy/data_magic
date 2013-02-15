@@ -67,7 +67,7 @@ You can call one of many built-in methods in your yaml file to randomize the dat
 
 Here is a list of the built-in methods:
 
-| built-in method    | 
+| built-in methods | built-in methods |
 | --- | --- |
 | first_name  last_name |
 | last_name | full_name | 
