@@ -81,9 +81,10 @@ Here is a list of the built-in methods:
 | sentences(sentence_count = 3) | paragraphs(paragraph_count = 3) |
 | characters(character_count = 255) | email_address(name = nil) | 
 | domain_name | url | 
-| user_name | phone_number |
-| cell_phone | randomize([]) | 
-| randomize(1..4) | mask -  #=num a=lower A=upper |
+| user_name | 
+| phone_number | cell_phone | 
+| randomize([]) | randomize(1..4) | 
+| mask -  #=num a=lower A=upper |
 | today(format = '%D') | tomorrow(format = '%D') |
 | yesterday(format = '%D') | 
 | 3.days_from_today(format = '%D') | 3.days_ago(format = '%D') |
