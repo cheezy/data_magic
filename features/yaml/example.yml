@@ -41,6 +41,7 @@ dm:
   5daysago: ~5.days_ago
   some_month: ~month
   month_abbr: ~month_abbr
+  some_day: ~day_of_week
 
 dynamic:
   blah: ~blah

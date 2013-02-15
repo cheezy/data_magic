@@ -108,6 +108,11 @@ Then /^the value for "(.*?)" should be a valid month abbreviation$/ do |key|
   months.should include @data[key]
 end
 
+Then /^the value for "(.*?)" should be a valid day$/ do |key|
+  days = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+  days.should include @data[key]
+end
+
 When /^I add the blah translator$/ do
   module Blah
     def blah

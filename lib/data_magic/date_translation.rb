@@ -55,6 +55,16 @@ module DataMagic
     def month_abbr
       randomize(Date::ABBR_MONTHNAMES[1..-1])
     end
+    alias_method :dm_month_abbr, :month_abbr
 
+    #
+    # return a day of the week
+    #
+    def day_of_week
+      randomize(Date::DAYNAMES)
+    end
+    alias_method :dm_day_of_week, :day_of_week
+
+    
   end
 end
