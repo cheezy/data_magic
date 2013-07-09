@@ -78,6 +78,13 @@ Feature: Functionality of the data_magic gem
     Then the value for "random" should be either "Tom", "Dick", or "Harry"
     And the value for "range" should be between 1 and 5
 
+  Scenario: Returning a sequential value from an array
+    Then the first value for the sequential data should be "first"
+    When I ask for the data again
+    Then the second value for the sequential data should be "second"
+    When I ask for the data again
+    Then the third value for the sequential data should be "third"
+
   Scenario: Returning a value based on a mask
     Then the value for "mask" should begin with 3 numbers
     And the value for "mask" should have 3 upper case letters after a dash

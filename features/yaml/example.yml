@@ -31,6 +31,7 @@ dm:
   bool_true: true
   bool_false: false
   random: ~randomize ['Tom', 'Dick', 'Harry']
+  ordered: ~sequential ['first', 'second', 'third']
   range:  ~randomize 1..5
   mask: ~mask "###-AAA_aaa"
   title: ~title

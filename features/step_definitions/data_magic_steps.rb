@@ -13,7 +13,8 @@ Given /^I have read the default yaml file from the default location$/ do
 end
 
 When /^I ask for the data for "(.+)"$/ do |key|
-  @data = TestClass.new.data_for key
+  @tc = TestClass.new
+  @data = @tc.data_for key
 end
 
 
@@ -131,4 +132,12 @@ When /^I add the blah translator$/ do
   end
   ta = TranslatorAdded.new
   @data = ta.data_for 'dynamic'
+end
+
+Then(/^the (?:first|second|third) value for the sequential data should be "(.*?)"$/) do |value|
+  @data['ordered'].should == value
+end
+
+When(/^I ask for the data again$/) do
+  @data = @tc.data_for 'dm'
 end

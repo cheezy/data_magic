@@ -33,7 +33,11 @@ module DataMagic
   end
 
   def translate(value)
-    Translation.new.send :process, value
+    translation.send :process, value
+  end
+
+  def translation
+    @translation ||= Translation.new
   end
 
   class << self

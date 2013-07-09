@@ -3,7 +3,7 @@ require 'data_magic/date_translation'
 module DataMagic
   class Translation
     include DateTranslation
-    
+
     #
     # return a random name (first and last)
     #
@@ -227,6 +227,13 @@ module DataMagic
     end
     alias_method :dm_randomize, :randomize
 
+    def sequential(value)
+      index = index_variable_for(value)
+      index = (index ? index + 1 : 0)
+      set_index_variable(value, index)
+      value[index]
+    end
+
     #
     # return a value based on a mast
     # The # character will be replaced with a number
@@ -250,6 +257,18 @@ module DataMagic
 
 
     private
+
+    def set_index_variable(ary, value)
+      instance_variable_set(index_name(ary), value)
+    end
+
+    def index_variable_for(ary)
+      instance_variable_get(index_name(ary))
+    end
+
+    def index_name(ary)
+      "@private_#{ary[0]}#{ary[1]}_index"
+    end
 
     def process(value)
       eval value
