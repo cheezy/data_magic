@@ -13,6 +13,7 @@ Given /^I have read the default yaml file from the default location$/ do
 end
 
 When /^I ask for the data for "(.+)"$/ do |key|
+  TestClass.instance_variable_set "@private_firstsecond_index", 0
   @tc = TestClass.new
   @data = @tc.data_for key
 end

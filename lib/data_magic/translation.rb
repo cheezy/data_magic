@@ -241,6 +241,7 @@ module DataMagic
     def sequential(value)
       index = index_variable_for(value)
       index = (index ? index + 1 : 0)
+      index = 0 if index == value.length
       set_index_variable(value, index)
       value[index]
     end
