@@ -8,7 +8,10 @@ require 'faker'
 module DataMagic
   extend YmlReader
 
+  attr_reader :parent
+
   def self.included(cls)
+    @parent = cls
     translators.each do |translator|
       Translation.send :include, translator
     end
@@ -37,7 +40,7 @@ module DataMagic
   end
 
   def translation
-    @translation ||= Translation.new
+    @translation ||= Translation.new parent
   end
 
   class << self

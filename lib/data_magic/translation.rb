@@ -4,6 +4,12 @@ module DataMagic
   class Translation
     include DateTranslation
 
+    attr_reader :parent
+
+    def initialize(parent)
+      @parent = parent
+    end
+
     #
     # return a random name (first and last)
     #
@@ -227,6 +233,11 @@ module DataMagic
     end
     alias_method :dm_randomize, :randomize
 
+    #
+    # return an element from the array.  The first request will return
+    # the first element, the second request will return the second,
+    # and so forth.
+    #
     def sequential(value)
       index = index_variable_for(value)
       index = (index ? index + 1 : 0)
@@ -259,11 +270,11 @@ module DataMagic
     private
 
     def set_index_variable(ary, value)
-      instance_variable_set(index_name(ary), value)
+      parent.instance_variable_set(index_name(ary), value)
     end
 
     def index_variable_for(ary)
-      instance_variable_get(index_name(ary))
+      parent.instance_variable_get(index_name(ary))
     end
 
     def index_name(ary)
