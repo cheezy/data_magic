@@ -279,7 +279,7 @@ module DataMagic
     end
 
     def index_name(ary)
-      "@private_#{ary[0]}#{ary[1]}_index"
+      "@private_#{ary[0]}#{ary[1]}_index".gsub(' ', '_').downcase
     end
 
     def process(value)
