@@ -20,6 +20,7 @@ module DataMagic
   def data_for(key, additional={})
     DataMagic.load('default.yml') unless DataMagic.yml
     data = DataMagic.yml[key.to_s]
+    raise ArgumentError, "Undefined key #{key}" unless data
     prep_data data.merge(additional).clone
   end
 
@@ -28,7 +29,7 @@ module DataMagic
   def prep_data(data)
     data.each do |key, value|
       unless value.nil?
-        next unless value.respond_to? '[]'
+        next if !value.respond_to?('[]') || value.is_a?(Numeric)
         data[key] = translate(value[1..-1]) if value[0,1] == "~"
       end
     end

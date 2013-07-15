@@ -250,6 +250,19 @@ describe "DataMagic translations" do
       end
     end
 
+    context "with numeric values" do
+      it "doesn't translate values" do
+        set_field_value(1)
+        example.data_for("key").should have_field_value 1
+      end
+    end
+
+    context "with values not in the yaml" do
+      it "throws a ArgumentError" do
+        expect { example.data_for("inexistant_key") }.to raise_error ArgumentError
+      end
+    end
+
     context "providing date values" do
       it "should provide today's date" do
         set_field_value '~today'
