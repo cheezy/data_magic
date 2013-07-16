@@ -271,15 +271,27 @@ module DataMagic
     private
 
     def set_index_variable(ary, value)
-      parent.instance_variable_set(index_name(ary), value)
+      index_hash[index_name(ary)] = value
     end
 
     def index_variable_for(ary)
-      parent.instance_variable_get(index_name(ary))
+      value = index_hash[index_name(ary)]
+      index_hash[index_name(ary)] = -1 unless value
+      index_hash[index_name(ary)]
     end
 
     def index_name(ary)
-      "@private_#{ary[0]}#{ary[1]}_index".gsub(' ', '_').downcase
+      "#{ary[0]}#{ary[1]}_index".gsub(' ', '_').downcase
+    end
+
+    def index_hash
+      dh = data_hash[parent]
+      data_hash[parent] = {} unless dh
+      data_hash[parent]
+    end
+
+    def data_hash
+      $data_magic_data_hash ||= {}
     end
 
     def process(value)
