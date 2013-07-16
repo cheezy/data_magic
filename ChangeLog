@@ -1,3 +1,8 @@
+=== Version 0.15.2
+* Fixes
+  * Display better message when key is not found (Thanks Guillaume Malette)
+  * Properly handling numeric values (Thanks Guillaume Malette)
+
 === Version 0.15.1 / 2013-7-11
 * Fixes
   * Fixed error when using sequential with entries that have spaces
