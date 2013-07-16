@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.platform      = Gem::Platform::RUBY
   gem.authors       = ["Jeff Morgan"]
   gem.email         = ["jeff.morgan@leandog.com"]
+  gem.license       = 'MIT'
   gem.homepage      = "http://github.com/cheezy/data_magic"
   gem.summary       = %q{Provides datasets to application via YAML files}
   gem.description   = %q{Provides datasets to application stored in YAML files}
