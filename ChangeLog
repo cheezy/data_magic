@@ -1,4 +1,4 @@
-=== Version 0.15.2
+=== Version 0.15.2 / 2013-7-17
 * Fixes
   * Display better message when key is not found (Thanks Guillaume Malette)
   * Properly handling numeric values (Thanks Guillaume Malette)
