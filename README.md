@@ -33,7 +33,7 @@ class MyPage
   
   ...
   
-  def populage_page
+  def populate_page
     populate_page_with data_for :my_page
   end
 end
