@@ -31,7 +31,7 @@ describe DataMagic do
         include DataMagic
       end
       data = UserPage.new.data_for "user/valid"
-      expect(data.keys).to eq(['name', 'job'])
+      expect(data.keys.sort).to eq(['job','name'])
     end
   end
 end
