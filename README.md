@@ -33,7 +33,7 @@ class MyPage
   
   ...
   
-  def populage_page
+  def populate_page
     populate_page_with data_for :my_page
   end
 end
@@ -52,7 +52,8 @@ Your data might look something like this:
 In order to access the data directly you can just call the method on the module like this:
 
 ````ruby
-  my_data = DataMagic.data_for :my_test
+  page = MyPage.new
+  my_data = page.data_for :my_test
 ````
 
 ## Data generators
