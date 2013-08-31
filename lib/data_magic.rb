@@ -4,6 +4,7 @@ require "data_magic/version"
 require "data_magic/translation"
 require 'yml_reader'
 require 'faker'
+    require 'pry'
 
 module DataMagic
   extend YmlReader
@@ -18,8 +19,14 @@ module DataMagic
   end
 
   def data_for(key, additional={})
-    DataMagic.load('default.yml') unless DataMagic.yml
-    data = DataMagic.yml[key.to_s]
+    if key.is_a?(String) && key.match(%r{/})
+      filename, record = key.split('/')
+      DataMagic.load("#{filename}.yml")
+    else
+      record = key.to_s
+      DataMagic.load('default.yml') unless DataMagic.yml
+    end
+    data = DataMagic.yml[record]
     raise ArgumentError, "Undefined key #{key}" unless data
     prep_data data.merge(additional).clone
   end

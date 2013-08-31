@@ -23,4 +23,15 @@ describe DataMagic do
       DataMagic.load("fname")
     end
   end
+
+  context "namespaced keys" do
+    it "loads correct file and retrieves data" do
+      DataMagic.yml_directory = 'config/data'
+      class UserPage
+        include DataMagic
+      end
+      data = UserPage.new.data_for "user/valid"
+      expect(data.keys.sort).to eq(['job','name'])
+    end
+  end
 end
