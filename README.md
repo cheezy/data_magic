@@ -90,6 +90,7 @@ Here is a list of the built-in methods:
 | 3.days_from_today(format = '%D') | 3.days_ago(format = '%D') |
 | month | month_abbr | 
 | day_of_week | day_of_week_abbr |
+| sequential([]) | sequential(1..4)|
 
 
 If you wish to add your own built-in methods you can simply pass a module
