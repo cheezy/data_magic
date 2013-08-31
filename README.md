@@ -15,14 +15,13 @@ DataMagic.yml_directory = 'data/yml'
 
 If you do not specify a directory the gem will default to using a directory named _config/data_. 
 
-
 After setting the directory you must load a file.  This can be accomplished by calling the _load_ method.
 
 ````ruby
 DataMagic.load 'filename.yml'
 ````
 
-If you do not specify a filename the gem will attempt to use a file named _default.yml_.  If you are using this for testing you will more than likely want to call load before each test to load the proper data for the spcific test.
+If you do not specify a filename the gem will attempt to use a file named _default.yml_.  If you are using this for testing you will more than likely want to call load before each test to load the proper data for the specific test, or use the namespaced keys method, detailed below.
 
 The final thing to do is use the data.  The gem has a _data_for_ method that will return the data for a specific key.  The most common way to use this is to include the _DataMagic_ module in a [page-object](https://github.com/cheezy/page-object) and then populate a page with the data.  Here's an example:
 
@@ -40,6 +39,14 @@ end
 ````
 
 Notice that I am including the module on line 3.  On lin 8 I am calling the _data_for_ method passing the key _:my_page_.  The _populate_page_with_ method is a part of the page-object gem.
+
+To organize your data into namespaces, and load that data just in time for testing, use namespaced keys instead:
+
+````ruby
+  page.populate_page_with data_for "user_form/valid"
+````
+
+This will load `user_form.yml`, and populate the page with the `valid:` record therein.
 
 Your data might look something like this:
 
