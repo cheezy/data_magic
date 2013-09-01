@@ -4,7 +4,6 @@ require "data_magic/version"
 require "data_magic/translation"
 require 'yml_reader'
 require 'faker'
-    require 'pry'
 
 module DataMagic
   extend YmlReader
