@@ -111,7 +111,7 @@ module MyData
   end
 end
    
-DataMagic.add_translator MyData
+DataMagic.add_translator MyData # this line must go in the same file as the module
     
 # can now use ~abc in my yml files
 ````
