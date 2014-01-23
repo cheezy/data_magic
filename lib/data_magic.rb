@@ -10,6 +10,8 @@ module DataMagic
 
   attr_reader :parent
 
+  I18n.enforce_available_locales = false
+
   def self.included(cls)
     @parent = cls
     translators.each do |translator|
