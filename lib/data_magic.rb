@@ -25,7 +25,7 @@ module DataMagic
       DataMagic.load("#{filename}.yml")
     else
       record = key.to_s
-      DataMagic.load('default.yml') unless DataMagic.yml
+      DataMagic.load(the_file) unless DataMagic.yml
     end
     data = DataMagic.yml[record]
     raise ArgumentError, "Undefined key #{key}" unless data
@@ -33,6 +33,10 @@ module DataMagic
   end
 
   private
+
+  def the_file
+    'default.yml'
+  end
 
   def prep_data(data)
     data.each do |key, value|
