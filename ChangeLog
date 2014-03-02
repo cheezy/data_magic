@@ -1,4 +1,6 @@
 === Version 0.18
+* Enhancements
+  * Can now set the file to be used by setting a DATA_MAGIC_FILE environment file
 * Fixes
   * Only forcing available locales if it is available
 

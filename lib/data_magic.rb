@@ -35,7 +35,7 @@ module DataMagic
   private
 
   def the_file
-    'default.yml'
+    ENV['DATA_MAGIC_FILE'] ? ENV['DATA_MAGIC_FILE'] :  'default.yml'
   end
 
   def prep_data(data)

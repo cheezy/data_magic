@@ -23,7 +23,9 @@ DataMagic.load 'filename.yml'
 
 If you do not specify a filename the gem will attempt to use a file named _default.yml_.  If you are using this for testing you will more than likely want to call load before each test to load the proper data for the specific test, or use the namespaced keys method, detailed below.
 
-The final thing to do is use the data.  The gem has a _data_for_ method that will return the data for a specific key.  The most common way to use this is to include the _DataMagic_ module in a [page-object](https://github.com/cheezy/page-object) and then populate a page with the data.  Here's an example:
+Another option is to set an environment variable DATA_MAGIC_FILE.  When this is set it will be used instead of the _default.yml_ file.
+
+The final thing to do is use the data.  The gem has a `data_for` method that will return the data for a specific key.  The most common way to use this is to include the _DataMagic_ module in a [page-object](https://github.com/cheezy/page-object) and then populate a page with the data.  Here's an example:
 
 ````ruby
 class MyPage
