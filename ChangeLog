@@ -1,3 +1,7 @@
+=== Version 0.18
+* Fixes
+  * Only forcing available locales if it is available
+
 === Version 0.17 / 2014-1-22
 * Fixes
   * Eliminated the deprecation message from I18n
