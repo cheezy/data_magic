@@ -10,7 +10,7 @@ module DataMagic
 
   attr_reader :parent
 
-  I18n.enforce_available_locales = false if I18n.enforce_available_locales
+  I18n.enforce_available_locales = false if I18n.respond_to? :enforce_available_locales
 
   def self.included(cls)
     @parent = cls
