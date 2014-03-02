@@ -1,4 +1,4 @@
-=== Version 0.18
+=== Version 0.18 / 2014-3-2
 * Enhancements
   * Can now set the file to be used by setting a DATA_MAGIC_FILE environment file
 * Fixes
