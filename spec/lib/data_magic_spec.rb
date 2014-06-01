@@ -23,7 +23,7 @@ describe DataMagic do
   context "when reading yml files" do
     it "should read files from the config directory" do
       DataMagic.yml_directory = 'test'
-      YAML.should_receive(:load_file).with("test/fname").and_return({})
+      File.should_receive(:read).with("test/fname").and_return('test')
       DataMagic.load("fname")
     end
 

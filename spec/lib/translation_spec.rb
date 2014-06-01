@@ -24,7 +24,7 @@ describe "DataMagic translations" do
 
     it "should default to use a file named 'default.yml'" do
       DataMagic.yml_directory = 'test'
-      YAML.should_receive(:load_file).with("test/default.yml").and_return({})
+      File.should_receive(:read).with("test/default.yml").and_return('test')
       DataMagic.should_receive(:yml).and_return(nil)
       DataMagic.should_receive(:yml).and_return({'key' => {'field' => 'value'}})
       example.data_for('key').should have_field_value 'value'
