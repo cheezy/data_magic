@@ -1,3 +1,7 @@
+=== Version 0.19 / 2014-6-1
+* Enhancements
+  * Can now include ERB in the yml file due to update in yml_reader
+
 === Version 0.18 / 2014-3-2
 * Enhancements
   * Can now set the file to be used by setting a DATA_MAGIC_FILE environment file
