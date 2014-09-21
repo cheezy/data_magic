@@ -37,8 +37,8 @@ Feature: Functionality of the data_magic gem
     And the value for "url" should include "http://"
 
   Scenario: Getting a phone number
-    Then the value for "phone" should be 1 word long
-    And the value for "cell" should be 1 word long
+    Then the value for "phone" should be a phone number
+    And the value for "cell" should be a phone number
 
   Scenario: Random phrases
     Then the value for "catch_phrase" should exist
@@ -114,3 +114,8 @@ Feature: Functionality of the data_magic gem
   Scenario: It should allow one to add new translator methods
     When I add the blah translator
     Then the value for "blah" should be "foobar"
+
+@focus
+  Scenario: Getting values from nested entries
+    Then the nested value for this is_nested should be "Nested Value"
+

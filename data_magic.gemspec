@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   
   gem.add_dependency 'faker', '>= 1.1.2'
-  gem.add_dependency 'yml_reader', '>= 0.3'
+  gem.add_dependency 'yml_reader', '>= 0.4'
 
   gem.add_development_dependency 'rspec', '>= 2.12.0'
   gem.add_development_dependency 'cucumber', '>= 1.2.0'

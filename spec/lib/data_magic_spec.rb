@@ -11,19 +11,19 @@ describe DataMagic do
     end
     
     it "should default to a directory named config" do
-      DataMagic.yml_directory.should == 'config/data'
+      expect(DataMagic.yml_directory).to eql 'config/data'
     end
 
     it "should store a yml directory" do
       DataMagic.yml_directory = 'test_dir'
-      DataMagic.yml_directory.should == 'test_dir'
+      expect(DataMagic.yml_directory).to eql 'test_dir'
     end
   end
 
   context "when reading yml files" do
     it "should read files from the config directory" do
       DataMagic.yml_directory = 'test'
-      File.should_receive(:read).with("test/fname").and_return('test')
+      expect(File).to receive(:read).with("test/fname").and_return('test')
       DataMagic.load("fname")
     end
 

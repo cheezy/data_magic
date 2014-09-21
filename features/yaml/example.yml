@@ -44,6 +44,8 @@ dm:
   month_abbr: ~month_abbr
   some_day: ~day_of_week
   day_abbr: ~day_of_week_abbr
+  this:
+    is_nested: Nested Value
 
 dynamic:
   blah: ~blah
