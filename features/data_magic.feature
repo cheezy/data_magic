@@ -118,3 +118,7 @@ Feature: Functionality of the data_magic gem
   Scenario: Getting values from nested entries
     Then the nested value for this is_nested should be "Nested Value"
 
+  Scenario: Should be able to call the translator methods on DataMagic module
+    Then I should be able to call the full_name translator
+    And I should be able to call the state translator
+    And I should be able to call the today translator

@@ -156,3 +156,8 @@ Then(/^the value for "(.*?)" should be a phone number$/) do |value|
     expect(phone.split(' ').length).to eql 1
   end
 end
+
+Then(/^I should be able to call the (.+) translator$/) do |method|
+  value = DataMagic.send method
+  expect(value).not_to be_empty
+end
