@@ -115,7 +115,6 @@ Feature: Functionality of the data_magic gem
     When I add the blah translator
     Then the value for "blah" should be "foobar"
 
-@focus
   Scenario: Getting values from nested entries
     Then the nested value for this is_nested should be "Nested Value"
 
