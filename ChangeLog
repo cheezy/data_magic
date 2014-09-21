@@ -1,3 +1,7 @@
+=== Version 0.20
+* Enhancements
+  * Added the ability to nest entries under headings
+
 === Version 0.19 / 2014-6-1
 * Enhancements
   * Can now include ERB in the yml file due to update in yml_reader
