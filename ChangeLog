@@ -1,4 +1,4 @@
-=== Version 0.20
+=== Version 0.20 / 2014-9-21
 * Enhancements
   * Added the ability to nest entries under headings
   * Added the ability to call the translation methods directlry on DataMagic module
