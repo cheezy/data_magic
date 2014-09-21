@@ -153,6 +153,6 @@ Then(/^the value for "(.*?)" should be a phone number$/) do |value|
     expect(phone).to include "("
     expect(phone).to include ")"
   else
-    expect(phone).to include "-"
+    expect(phone).split(' ').length to eql 1
   end
 end
