@@ -132,6 +132,14 @@ describe "DataMagic translations" do
       end
     end
 
+    context "translating business" do
+      it "should add a credit card number" do
+        expect(Faker::Business).to receive(:credit_card_number).and_return('123')
+        set_field_value '~credit_card_number'
+        expect(example.data_for('key')).to have_field_value '123'
+      end
+    end
+
     context "translating internet names" do
       it "should add an email address" do
         expect(Faker::Internet).to receive(:email).and_return('buddy@example.com')

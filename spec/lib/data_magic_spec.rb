@@ -18,6 +18,12 @@ describe DataMagic do
       DataMagic.yml_directory = 'test_dir'
       expect(DataMagic.yml_directory).to eql 'test_dir'
     end
+
+    it "should accept and use locale" do
+      expect(Faker::Config).to receive(:locale=).with('blah')
+      DataMagic.locale = 'blah'
+    end
+
   end
 
   context "when reading yml files" do

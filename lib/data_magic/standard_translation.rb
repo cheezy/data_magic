@@ -125,6 +125,14 @@ module DataMagic
     alias_method :dm_catch_phrase, :catch_phrase
 
     #
+    # return a credit card number
+    #
+    def credit_card_number
+      Faker::Business.credit_card_number
+    end
+    alias_method :dm_credit_card_number, :credit_card_number
+
+    #
     # return random words - default is 3 words
     #
     def words(number = 3)

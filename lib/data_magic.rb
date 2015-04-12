@@ -16,6 +16,10 @@ module DataMagic
 
   I18n.enforce_available_locales = false if I18n.respond_to? :enforce_available_locales
 
+  def self.locale=(value)
+    Faker::Config.locale = value
+  end
+  
   def self.included(cls)
     @parent = cls
     translators.each do |translator|
