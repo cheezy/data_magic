@@ -2,6 +2,7 @@
 * Enhancements
   * Added support for locale
   * Added credit_card_number translator
+  * Added credit_card_type translator
 
 === Version 0.20 / 2014-9-21
 * Enhancements

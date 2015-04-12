@@ -138,6 +138,13 @@ describe "DataMagic translations" do
         set_field_value '~credit_card_number'
         expect(example.data_for('key')).to have_field_value '123'
       end
+
+      it "should add credit card type" do
+        expect(Faker::Business).to receive(:credit_card_type).
+                   and_return('visa')
+        set_field_value '~credit_card_type'
+        expect(example.data_for('key')).to have_field_value 'visa'
+      end
     end
 
     context "translating internet names" do

@@ -133,6 +133,14 @@ module DataMagic
     alias_method :dm_credit_card_number, :credit_card_number
 
     #
+    # return a credit card type
+    #
+    def credit_card_type
+      Faker::Business.credit_card_type
+    end
+    alias_method :dm_credit_card_type, :credit_card_type
+    
+    #
     # return random words - default is 3 words
     #
     def words(number = 3)
