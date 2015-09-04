@@ -1,5 +1,5 @@
 Feature: Functionality of the data_magic gem
-  
+
   Background:
     Given I have read the yaml file from features/yaml
     When I ask for the data for "dm"
@@ -101,7 +101,7 @@ Feature: Functionality of the data_magic gem
 
   Scenario: Getting a random month name
     Then the value for "some_month" should be a valid month
-    
+
   Scenario: Getting a random month abbreviation
     Then the value for "month_abbr" should be a valid month abbreviation
 
@@ -119,14 +119,14 @@ Feature: Functionality of the data_magic gem
     Then the nested value for this is_nested should be "Nested Value"
 
   Scenario Outline: Translate values from nested hahs
-    Then the nested hash should include "<key>"
-    And the value for "<key>" should be <value>
-    And the value for "<key>" should not be <value>
-    
-    Example:
-    |key|value|not_value|
-    |full_name|have a minimum of 2 words|~full_name|
-    |first_name|be 1 word long|~first_name|
+    Given overwrite @data with translate_nested
+    Then the nested hash should include <key>
+    And the value for "<key>" should <validate>
+    And the value for "<key>" should not mach <negative_validate>
+    Examples:
+      | key        | validate                  | negative_validate |
+      | full_name  | have a minimum of 2 words | ~full_name        |
+      | first_name | be 1 word long            | ~first_name       |
 
   Scenario: Should be able to call the translator methods on DataMagic module
     Then I should be able to call the full_name translator

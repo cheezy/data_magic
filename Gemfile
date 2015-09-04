@@ -6,6 +6,7 @@ gem 'growl'
 gem 'guard-rspec'
 gem 'guard-cucumber'
 gem 'fuubar'
+gem 'debugger'
 
 # Specify your gem's dependencies in data_magic.gemspec
 gemspec
