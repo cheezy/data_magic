@@ -147,6 +147,10 @@ Then(/^the nested value for this is_nested should be "(.*?)"$/) do |value|
   expect(@data['this']['is_nested']).to eql value
 end
 
+Then(/^the nested hash should include "(.*?)"$/) do |value|
+  expect(@data['this']['is_nested']).to eql value
+end
+
 Then(/^the value for "(.*?)" should be a phone number$/) do |value|
   phone = @data[value]
   if phone.split(' ').length == 2
