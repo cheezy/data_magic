@@ -118,6 +118,16 @@ Feature: Functionality of the data_magic gem
   Scenario: Getting values from nested entries
     Then the nested value for this is_nested should be "Nested Value"
 
+  Scenario Outline: Translate values from nested hahs
+    Then the nested hash should include "<key>"
+    And the value for "<key>" should be <value>
+    And the value for "<key>" should not be <value>
+    
+    Example:
+    |key|value|not_value|
+    |full_name|have a minimum of 2 words|~full_name|
+    |first_name|be 1 word long|~first_name|
+
   Scenario: Should be able to call the translator methods on DataMagic module
     Then I should be able to call the full_name translator
     And I should be able to call the state translator
