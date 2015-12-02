@@ -50,8 +50,11 @@ module DataMagic
     data.each do |key, value|
       unless value.nil?
         next if !value.respond_to?('[]') || value.is_a?(Numeric)
-        next if value.is_a?(Hash)
-        data[key] = translate(value[1..-1]) if value[0,1] == "~"
+        if value.is_a?(Hash)
+          data[key] = prep_data(value)
+        else  
+          data[key] = translate(value[1..-1]) if value[0,1] == "~"
+        end
       end
     end
     data

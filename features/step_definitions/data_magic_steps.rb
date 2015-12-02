@@ -28,7 +28,7 @@ Then /^the value for "(.+)" should be (true|false)$/ do |key, value|
 end
 
 Then /^the value for "(.+)" should be (\d+) word|words long$/ do |key, length|
-  expect(@data[key].split(' ').size).to eql length.to_i
+    expect(@data[key].split(' ').size).to eql length.to_i
 end
 
 Then /^the value for "(.+)" should have a minimum of (\d+) word|wordss$/ do |key, length|
@@ -147,6 +147,10 @@ Then(/^the nested value for this is_nested should be "(.*?)"$/) do |value|
   expect(@data['this']['is_nested']).to eql value
 end
 
+Then(/^the nested hash should include (.*?)$/) do |value|
+  expect(@data.keys).to include value
+end
+
 Then(/^the value for "(.*?)" should be a phone number$/) do |value|
   phone = @data[value]
   if phone.split(' ').length == 2
@@ -160,4 +164,15 @@ end
 Then(/^I should be able to call the (.+) translator$/) do |method|
   value = DataMagic.send method
   expect(value).not_to be_empty
+end
+
+
+And(/^the value for "([^"]*)" should not mach (.*)$/) do |key, value|
+  expect(@data[key]).not_to eql value
+end
+
+
+Given(/^overwrite @data with (.*)$/) do |hash|
+  # This is a bit dangerous but quick way to make all steps to work with nested data
+  @data = @data['this'][hash]
 end

@@ -46,6 +46,9 @@ dm:
   day_abbr: ~day_of_week_abbr
   this:
     is_nested: Nested Value
+    translate_nested:
+      full_name: ~full_name
+      first_name: ~first_name
 
 dynamic:
   blah: ~blah
