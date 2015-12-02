@@ -1,6 +1,6 @@
 === Version 0.22 / 2015-12-2
 * Enhancements
-  * Better handling for nexted hash translation
+  * Better handling for nexted hash translation (thanks vveliev)
 
 === Version 0.21 / 2015-4-12
 * Enhancements
