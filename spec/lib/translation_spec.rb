@@ -23,8 +23,12 @@ describe "DataMagic translations" do
     end
 
     it "should default to use a file named 'default.yml'" do
+      hsh = double('hash')
       DataMagic.yml_directory = 'test'
-      expect(File).to receive(:read).with("test/default.yml").and_return('test')
+      expect(File).to receive(:read).with("test/default.yml")
+      expect(ERB).to receive(:new).and_return hsh
+      expect(hsh).to receive(:result)
+      expect(YAML).to receive(:load).and_return(test: 'test')
       expect(DataMagic).to receive(:yml).and_return(nil)
       expect(DataMagic).to receive(:yml).and_return({'key' => {'field' => 'value'}})
       expect(example.data_for('key')).to have_field_value 'value'

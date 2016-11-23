@@ -28,9 +28,10 @@ describe DataMagic do
 
   context "when reading yml files" do
     it "should read files from the config directory" do
-      DataMagic.yml_directory = 'test'
-      expect(File).to receive(:read).with("test/fname").and_return('test')
-      DataMagic.load("fname")
+      DataMagic.yml = nil
+      DataMagic.load("user.yml")
+      data = UserPage.new.data_for "valid"
+      expect(data.keys.sort).to eq(['job','name'])
     end
 
     it "should default to reading a file named default.yml" do
