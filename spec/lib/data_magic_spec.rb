@@ -4,6 +4,21 @@ class UserPage
   include DataMagic
 end
 
+class MockScenario
+  attr_accessor :tags
+  def initialize(tags)
+    @tags = tags
+  end
+end
+
+class MockTag
+  attr_reader :name, :line
+  def initialize(name, line)
+    @name = name
+    @line = line
+  end
+end
+
 describe DataMagic do
   context "when configuring the yml directory" do
     before(:each) do
@@ -67,6 +82,29 @@ describe DataMagic do
       DataMagic.yml_directory = 'config/data'
       data = UserPage.new.data_for "user/valid"
       expect(data.keys.sort).to eq(['job','name'])
+    end
+  end
+
+  context "loading fixtures for cucumber scenarios" do
+    it "loads the fixture for a scenario" do
+      DataMagic.yml_directory = 'config/data'
+      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@fixture_user', 1)])
+      expect(DataMagic).to receive(:load).with('user.yml')
+      DataMagic.load_for_cuke_scenario scenario
+    end
+
+    it "uses the last fixture listed for a scenario if multiple exist" do
+      scenario = MockScenario.new([MockTag.new('@fixture_default', 1), MockTag.new('@fixture_user', 1)])
+      expect(DataMagic).to receive(:load).with('user.yml')
+      DataMagic.load_for_cuke_scenario scenario
+    end
+
+    it "allows you to force loading from a different folder without stepping on the global folder" do
+      DataMagic.yml_directory = 'features'
+      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@fixture_user', 1)])
+      expect(DataMagic).to receive(:load).with('user.yml')
+      DataMagic.load_for_cuke_scenario scenario, 'config/data'
+      expect(DataMagic.yml_directory).to eq('features')
     end
   end
 end
