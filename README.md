@@ -21,6 +21,17 @@ After setting the directory you must load a file.  This can be accomplished by c
 DataMagic.load 'filename.yml'
 ````
 
+Another way to specify the file to load is to use a _tag_ in a cucumber scenario.  You tag should take the
+form of `@datamagic_FILENAME` where `FILENAME` is replaced with the file you wish to load.  Then you can
+simply have the following code in a hook:
+
+````ruby
+Before do |scenario|
+  DataMagic.load_for_scenario(scenario)
+end
+````
+
+
 If you do not specify a filename the gem will attempt to use a file named _default.yml_.  If you are using this for testing you will more than likely want to call load before each test to load the proper data for the specific test, or use the namespaced keys method, detailed below.
 
 Another option is to set an environment variable DATA_MAGIC_FILE.  When this is set it will be used instead of the _default.yml_ file.

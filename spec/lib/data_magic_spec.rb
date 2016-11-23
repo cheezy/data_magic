@@ -88,22 +88,22 @@ describe DataMagic do
   context "loading fixtures for cucumber scenarios" do
     it "loads the fixture for a scenario" do
       DataMagic.yml_directory = 'config/data'
-      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@fixture_user', 1)])
+      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@datamagic_user', 1)])
       expect(DataMagic).to receive(:load).with('user.yml')
-      DataMagic.load_for_cuke_scenario scenario
+      DataMagic.load_for_scenario scenario
     end
 
     it "uses the last fixture listed for a scenario if multiple exist" do
-      scenario = MockScenario.new([MockTag.new('@fixture_default', 1), MockTag.new('@fixture_user', 1)])
+      scenario = MockScenario.new([MockTag.new('@fixture_default', 1), MockTag.new('@datamagic_user', 1)])
       expect(DataMagic).to receive(:load).with('user.yml')
-      DataMagic.load_for_cuke_scenario scenario
+      DataMagic.load_for_scenario scenario
     end
 
     it "allows you to force loading from a different folder without stepping on the global folder" do
       DataMagic.yml_directory = 'features'
-      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@fixture_user', 1)])
+      scenario = MockScenario.new([MockTag.new('@tag', 1), MockTag.new('@datamagic_user', 1)])
       expect(DataMagic).to receive(:load).with('user.yml')
-      DataMagic.load_for_cuke_scenario scenario, 'config/data'
+      DataMagic.load_for_scenario scenario, 'config/data'
       expect(DataMagic.yml_directory).to eq('features')
     end
   end
