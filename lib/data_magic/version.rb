@@ -1,3 +1,3 @@
 module DataMagic
-  VERSION = "0.22"
+  VERSION = "1.0"
 end
