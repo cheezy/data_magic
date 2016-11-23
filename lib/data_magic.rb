@@ -37,7 +37,7 @@ module DataMagic
     end
     data = DataMagic.yml[record]
     raise ArgumentError, "Undefined key #{key}" unless data
-    prep_data data.merge(additional).clone
+    additional.key?(record) ? prep_data(data.merge(additional[record]).clone) : prep_data(data.merge(additional).clone)
   end
 
   private

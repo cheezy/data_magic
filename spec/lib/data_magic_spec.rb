@@ -48,6 +48,17 @@ describe DataMagic do
       expect(data.keys.sort).to eq(['job','name'])
       ENV['DATA_MAGIC_FILE'] = nil
     end
+
+    it 'should merge additional data to the same key if not present in addtional' do
+      DataMagic.yml_directory = 'config/data'
+      data = UserPage.new.data_for 'user/valid', {'job' => 'Overlord'}
+      expect(data['job']).to eq('Overlord')
+    end
+    it 'should merge additional data to resulting hash if present in additional data' do
+      DataMagic.yml_directory = 'config/data'
+      data = UserPage.new.data_for 'user/valid', { 'valid' => {'job' => 'Overlord'} }
+      expect(data['job']).to eq('Overlord')
+    end
   end
 
   context "namespaced keys" do
