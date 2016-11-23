@@ -1,6 +1,7 @@
 === Version 1.0 / 2016-11-23
 * Enhancements
   * Allow merged to be a Hash of Hashes and find key that matches (thanks Donavan Stanley)
+  * Allow you to specify file to load with tag when using Cucumber (thanks Donavan Stanley)
 
 === Version 0.22 / 2015-12-2
 * Enhancements
