@@ -85,12 +85,6 @@ module DataMagic
     base_hash.deep_merge new_hash
   end
 
-  def self.fixture_tags_on(scenario)
-    # tags for cuke 2, source_tags for cuke 1
-    tags = scenario.send(scenario.respond_to?(:tags) ? :tags : :source_tags)
-    tags.map(&:name).select { |t| t =~ /@datamagic_/ }
-  end
-
   def self.fixture_files_on(scenario)
     # tags for cuke 2, source_tags for cuke 1
     tags = scenario.send(scenario.respond_to?(:tags) ? :tags : :source_tags)
