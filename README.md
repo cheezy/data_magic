@@ -22,8 +22,9 @@ DataMagic.load 'filename.yml'
 ````
 
 Another way to specify the file to load is to use a _tag_ in a cucumber scenario.  You tag should take the
-form of `@datamagic_FILENAME` where `FILENAME` is replaced with the file you wish to load.  Then you can
-simply have the following code in a hook:
+form of `@datamagic_FILENAME` where `FILENAME` is replaced with the file you wish to load.  For example,
+if you add the tag `@datamagic_foo` then the file `foo.yml` will be loaded.  If you want
+to use the tags you simply have to add the following code in a hook:
 
 ````ruby
 Before do |scenario|
