@@ -1,17 +1,12 @@
 require 'spec_helper'
-
-class TestSubject
-  include DataMagic
-end
-
 describe "DataMagic translations" do
   context "when delivering data" do
-    let(:example) { TestSubject.new }
+    let(:example) { (Class.new { include DataMagic }).new }
 
     def set_field_value(value)
       expect(DataMagic).to receive(:yml).twice.and_return({'key' => {'field' => value}})
     end
-    
+
     it "should deliver the hash from the yaml" do
       set_field_value 'value'
       expect(example.data_for('key')).to have_field_value 'value'
@@ -170,7 +165,7 @@ describe "DataMagic translations" do
         expect(example.data_for('key')).to have_field_value 'very_cheezy'
       end
     end
-    
+
     context "translating phone numbers" do
       it "shold add a phone number" do
         expect(Faker::PhoneNumber).to receive(:phone_number).and_return('555-555-5555')
