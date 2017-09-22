@@ -11,12 +11,14 @@ Gem::Specification.new do |gem|
   gem.homepage      = "http://github.com/cheezy/data_magic"
   gem.summary       = %q{Provides datasets to application via YAML files}
   gem.description   = %q{Provides datasets to application stored in YAML files}
-  
+
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.require_paths = ["lib"]
-  
+
+  gem.required_ruby_version = '>= 2.2'
+
   gem.add_dependency 'faker', '>= 1.1.2'
   gem.add_dependency 'yml_reader', '>= 0.6'
 
