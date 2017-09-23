@@ -34,7 +34,7 @@ describe "DataMagic translations" do
       expect(yaml).to receive(:merge).and_return(yaml)
       expect(DataMagic).to receive(:yml).twice.and_return(yaml)
       expect(yaml).to receive(:[]).and_return(yaml)
-      expect(yaml).to receive(:clone).and_return({'field' => 'value'})
+      expect(yaml).to receive(:deep_copy).and_return({'field' => 'value'})
       expect(example.data_for('key')).to have_field_value 'value'
     end
 
@@ -43,7 +43,7 @@ describe "DataMagic translations" do
       expect(DataMagic).to receive(:yml).twice.and_return(yaml)
       expect(yaml).to receive(:[]).and_return(yaml)
       expect(yaml).to receive(:merge).and_return(yaml)
-      expect(yaml).to receive(:clone).and_return({'field' => 'value'})
+      expect(yaml).to receive(:deep_copy).and_return({'field' => 'value'})
       expect(example.data_for('key')).to have_field_value 'value'
     end
 
@@ -306,6 +306,13 @@ describe "DataMagic translations" do
         the_date = Date.today - 5
         expect(example.data_for('key')).to have_field_value the_date.strftime('%D')
       end
+    end
+    context "should fail when translation call methos is not defined" do
+      it "should fail if method does not exist" do
+        set_field_value '~non_existing_method'
+        expect{example.data_for('key')}.to raise_error(/non_existing_method/)
+      end
+
     end
   end
 end
