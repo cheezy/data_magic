@@ -1,4 +1,4 @@
-== Version 1.2
+== Version 1.2 / 2017-09-23
 * Enhancements
   * Data is translated each time a request is made for data (Thanks Vveliev)
   * Array handling and translation (Thanks Vveliev)
