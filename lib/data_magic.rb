@@ -59,15 +59,13 @@ module DataMagic
   end
 
   def prep_data(data)
-    data.each do |key, value|
-      unless value.nil?
-        next if !value.respond_to?('[]') || value.is_a?(Numeric)
-        if value.is_a?(Hash)
-          data[key] = prep_data(value)
-        else
-          data[key] = translate(value[1..-1]) if value[0, 1] == "~"
-        end
-      end
+    case data
+      when Hash
+        data.each {|key, value| data[key] = prep_data(value)}
+      when Array
+        data.each_with_index{|value, i|  data[i] = prep_data(value)}
+      when String
+        return translate(data[1..-1]) if data[0, 1] == '~'
     end
     data
   end
