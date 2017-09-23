@@ -1,7 +1,8 @@
 require 'data_magic/core_ext/string'
 require 'data_magic/core_ext/integer'
-require "data_magic/version"
-require "data_magic/translation"
+require 'data_magic/core_ext/hash'
+require 'data_magic/version'
+require 'data_magic/translation'
 require 'data_magic/date_translation'
 require 'data_magic/standard_translation'
 require 'yml_reader'
@@ -19,7 +20,7 @@ module DataMagic
   def self.locale=(value)
     Faker::Config.locale = value
   end
-  
+
   def self.included(cls)
     @parent = cls
     translators.each do |translator|
@@ -37,7 +38,7 @@ module DataMagic
     end
     data = DataMagic.yml[record]
     raise ArgumentError, "Undefined key #{key}" unless data
-    additional.key?(record) ? prep_data(data.merge(additional[record]).clone) : prep_data(data.merge(additional).clone)
+    prep_data(data.merge(additional.key?(record) ? additional[record] : additional).deep_copy)
   end
 
   # Given a scenario, load any fixture it needs.
@@ -54,7 +55,7 @@ module DataMagic
   private
 
   def the_file
-    ENV['DATA_MAGIC_FILE'] ? ENV['DATA_MAGIC_FILE'] :  'default.yml'
+    ENV['DATA_MAGIC_FILE'] ? ENV['DATA_MAGIC_FILE'] : 'default.yml'
   end
 
   def prep_data(data)
@@ -63,8 +64,8 @@ module DataMagic
         next if !value.respond_to?('[]') || value.is_a?(Numeric)
         if value.is_a?(Hash)
           data[key] = prep_data(value)
-        else  
-          data[key] = translate(value[1..-1]) if value[0,1] == "~"
+        else
+          data[key] = translate(value[1..-1]) if value[0, 1] == "~"
         end
       end
     end
@@ -73,6 +74,8 @@ module DataMagic
 
   def translate(value)
     translation.send :process, value
+  rescue => error
+    fail "Failed to translate: #{value}\n Reason: #{error.message}\n"
   end
 
   def translation
@@ -88,12 +91,12 @@ module DataMagic
   def self.fixture_files_on(scenario)
     # tags for cuke 2, source_tags for cuke 1
     tags = scenario.send(scenario.respond_to?(:tags) ? :tags : :source_tags)
-    tags.map(&:name).select { |t| t =~ /@datamagic_/ }.map { |t| t.gsub('@datamagic_', '').to_sym }
+    tags.map(&:name).select {|t| t =~ /@datamagic_/}.map {|t| t.gsub('@datamagic_', '').to_sym}
   end
 
   class << self
     attr_accessor :yml
-  
+
     def default_directory
       'config/data'
     end
