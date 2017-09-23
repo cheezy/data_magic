@@ -14,8 +14,9 @@ require 'rspec'
 require 'data_magic'
 
 RSpec::Matchers.define :have_field_value do |expected|
+  supports_block_expectations
   match do |actual|
-    actual['field'] == expected
+    actual['field'] === expected
   end
   
   failure_message do |actual|

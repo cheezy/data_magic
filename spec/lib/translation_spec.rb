@@ -312,7 +312,13 @@ describe "DataMagic translations" do
         set_field_value '~non_existing_method'
         expect{example.data_for('key')}.to raise_error(/non_existing_method/)
       end
+    end
 
+    context "array translation test" do
+      it "should be able to translate " do
+        set_field_value ["~'user' + 'name'", 'second']
+        expect(example.data_for('key')).to have_field_value ['username','second']
+      end
     end
   end
 end
