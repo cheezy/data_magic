@@ -54,8 +54,8 @@ module DataMagic
     #
     # return a random street address
     #
-    def street_address(include_secondary=false)
-      Faker::Address.street_address(include_secondary)
+    def street_address
+      Faker::Address.street_address
     end
     alias_method :dm_street_address, :street_address
 
@@ -139,7 +139,7 @@ module DataMagic
       Faker::Business.credit_card_type
     end
     alias_method :dm_credit_card_type, :credit_card_type
-    
+
     #
     # return random words - default is 3 words
     #
@@ -183,8 +183,8 @@ module DataMagic
     #
     # return a random email address
     #
-    def email_address(name=nil)
-      Faker::Internet.email(name)
+    def email_address
+      Faker::Internet.email
     end
     alias_method :dm_email_address, :email_address
 
